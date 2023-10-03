@@ -1,0 +1,10 @@
+import 'package:flutter/material.dart';
+
+import 'hexColorToFlutterColor.dart';
+
+extension ColorUtil on BuildContext {
+  Color get brandColor1 => HexColor("#353A64");
+  Color get brandColor2 => HexColor("#353A64");
+  Color get nextButtonColor => HexColor('#008BDC');
+  Color get loginRow => HexColor("#575C83");
+}
