@@ -46,7 +46,7 @@ class HomescreenView extends GetView<HomescreenController> {
                   style: TextStyleUtil.roboto500(fontSize: 12.kh),
                 ),
               ],
-            ),
+            ).paddingOnly(bottom: 24.kh),
             QuahaCategoryListView(
               text: 'Design',
               height: 90,
