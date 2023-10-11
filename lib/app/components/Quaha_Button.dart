@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quaha/app/services/responsive_size.dart';
 
 class QuahaButton extends StatelessWidget {
   final Function() onpressed;
@@ -13,13 +14,12 @@ class QuahaButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.symmetric(horizontal: 12.kw, vertical: 16.kh)),
         onPressed: onpressed,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 8.0, bottom: 8),
-          child: Text(
-            label,
-            style: labelStyle,
-          ),
+        child: Text(
+          label,
+          style: labelStyle,
         ));
   }
 }

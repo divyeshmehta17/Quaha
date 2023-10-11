@@ -61,6 +61,18 @@ class TextStyleUtil {
     );
   }
 
+  static TextStyle rubikWetPaint400({
+    Color color = Colors.white,
+    required double fontSize,
+  }) {
+    return TextStyle(
+      fontFamily: 'Rubikwetpaint',
+      color: color,
+      fontSize: fontSize,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
   static TextStyle rubik500({
     Color color = Colors.white,
     required double fontSize,

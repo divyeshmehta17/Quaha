@@ -21,7 +21,7 @@ class LoginView extends GetView<LoginController> {
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,14 +62,10 @@ class LoginView extends GetView<LoginController> {
                   textStyle: TextStyleUtil.roboto400(fontSize: 14),
                 ),
                 24.kheightBox,
-                SizedBox(
-                  width: 343.kw,
-                  height: 48.kh,
-                  child: QuahaButton(
-                    onpressed: () {},
-                    label: 'Login',
-                    labelStyle: TextStyleUtil.roboto400(fontSize: 14),
-                  ),
+                QuahaButton(
+                  onpressed: () {},
+                  label: 'Login',
+                  labelStyle: TextStyleUtil.roboto400(fontSize: 14),
                 ),
                 20.kheightBox,
                 Center(

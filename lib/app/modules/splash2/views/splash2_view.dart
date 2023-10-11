@@ -35,7 +35,10 @@ class Splash2View extends GetView<Splash2Controller> {
             160.kheightBox,
             NextButton(
               onTap: () {
-                Get.to(const Splash3View());
+                Get.to(
+                  const Splash3View(),
+                  transition: Transition.rightToLeft,
+                );
               },
               color: Colors.white,
               iconColor: Colors.blue,

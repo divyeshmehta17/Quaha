@@ -102,8 +102,8 @@ class Auth extends GetxService {
   }
 
   Future<void> handleGetContact() async {
-    final mytoken = await _firebaseAuth.currentUser!.getIdToken(true);
-    final fireUid = _firebaseAuth.currentUser!.uid;
+    final mytoken = await _firebaseAuth.currentUser?.getIdToken(true);
+    final fireUid = _firebaseAuth.currentUser?.uid;
 
     //Get.find<GetStorageService>().setEncjwToken = mytoken!;
     //Get.find<GetStorageService>().setFirebaseUid = fireUid;

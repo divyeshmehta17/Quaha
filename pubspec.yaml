@@ -53,6 +53,9 @@ dependencies:
   url_launcher: ^6.1.14
   percent_indicator: ^4.2.3
   circular_countdown_timer: ^0.2.3
+  otp_text_field: ^1.1.3
+  smooth_page_indicator: ^1.1.0
+  flutter_multi_select_items: ^0.4.2
 
 dev_dependencies:
   flutter_test:
@@ -108,6 +111,9 @@ flutter:
       fonts:
         - asset: assets/fonts/Rubik/static/Rubik-Medium.ttf
         - weight: 500
-  #
+    - family: Rubikwetpaint
+      fonts:
+        - asset: assets/fonts/Rubikwetpaint/RubikWetPaint-Regular.ttf
+        - weight: 400
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

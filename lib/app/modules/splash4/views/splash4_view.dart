@@ -31,7 +31,10 @@ class Splash4View extends GetView<Splash4Controller> {
             77.kheightBox,
             NextButton(
               onTap: () {
-                Get.offAll(LoginView());
+                Get.offAll(
+                  LoginView(),
+                  transition: Transition.rightToLeft,
+                );
               },
               color: Colors.blue,
               iconColor: Colors.white,

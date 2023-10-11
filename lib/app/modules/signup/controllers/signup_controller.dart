@@ -7,7 +7,7 @@ class SignupController extends GetxController {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
-  final count = 0.obs;
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   void onInit() {
     super.onInit();
@@ -21,7 +21,45 @@ class SignupController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+    emailController.clear();
+    phoneController.clear();
+    nameController.clear();
+    phoneController.clear();
   }
 
-  void increment() => count.value++;
+  nameValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'please enter email';
+    } else if (!value.isEmail) {
+      return "enter a valid email";
+    }
+  }
+
+  emailValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'please enter email';
+    } else if (!value.isEmail) {
+      return "enter a valid email";
+    }
+  }
+
+  passwordValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'please enter password';
+    } else if (value.length < 8) {
+      return "enter atleast 8 characters";
+    } else if (!RegExp(
+            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+        .hasMatch(value)) {
+      return 'Minimum 1 Upper and lowercase case,\n Numeric Number and Special Character.\nCommon Allow Character ( ! @ # \$ & * ~ )';
+    }
+  }
+
+  phoneValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'please enter email';
+    } else if (!value.isEmail) {
+      return "enter a valid email";
+    }
+  }
 }

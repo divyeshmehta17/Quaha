@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quaha/app/constants/image_constant.dart';
-import 'package:quaha/app/modules/splash2/views/splash2_view.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
 import 'package:quaha/app/services/text_style_util.dart';
 
 import '../../../services/custombuttons.dart';
+import '../../splash2/views/splash2_view.dart';
 import '../controllers/splash1_controller.dart';
 
 class Splash1View extends GetView<Splash1Controller> {
@@ -40,7 +40,10 @@ class Splash1View extends GetView<Splash1Controller> {
             62.kheightBox,
             NextButton(
               onTap: () {
-                Get.to(const Splash2View());
+                Get.to(
+                  () => const Splash2View(),
+                  transition: Transition.rightToLeft,
+                );
               },
               color: Colors.blue,
               iconColor: Colors.white,

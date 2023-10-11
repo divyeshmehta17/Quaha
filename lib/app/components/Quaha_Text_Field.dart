@@ -4,6 +4,7 @@ class QuahaTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final bool obscureText;
+  final String? Function(String?)? validator;
   final TextStyle textStyle;
   final Widget prefixIcon;
   final TextInputType? textInputType;
@@ -14,11 +15,13 @@ class QuahaTextField extends StatelessWidget {
       required this.obscureText,
       required this.textStyle,
       required this.prefixIcon,
-      this.textInputType});
+      this.textInputType,
+      this.validator});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       controller: controller,
       obscureText: obscureText,
       keyboardType: textInputType,

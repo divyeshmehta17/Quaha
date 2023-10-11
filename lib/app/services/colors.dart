@@ -7,4 +7,5 @@ extension ColorUtil on BuildContext {
   Color get brandColor2 => HexColor("#353A64");
   Color get nextButtonColor => HexColor('#008BDC');
   Color get loginRow => HexColor("#575C83");
+  Color get containerBG => HexColor("#575C83");
 }

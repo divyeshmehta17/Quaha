@@ -10,6 +10,13 @@ abstract class Routes {
   static const SPLASH4 = _Paths.SPLASH4;
   static const LOGIN = _Paths.LOGIN;
   static const SIGNUP = _Paths.SIGNUP;
+  static const WALKTHROUGH = _Paths.WALKTHROUGH;
+  static const VERFICATION = '/verfication';
+  static const DETAILS1 = _Paths.DETAILS1;
+  static const HOMESCREEN = _Paths.HOMESCREEN;
+  static const QUIZSCREEN = _Paths.QUIZSCREEN;
+  static const COURSESSCREEN = _Paths.COURSESSCREEN;
+  static const VISCREEN = _Paths.VISCREEN;
 }
 
 abstract class _Paths {
@@ -21,4 +28,11 @@ abstract class _Paths {
   static const SPLASH4 = '/splash4';
   static const LOGIN = '/login';
   static const SIGNUP = '/signup';
+  static const WALKTHROUGH = '/walkthrough';
+  static const DETAILS1 = '/details1';
+  static const BottomNavBar = '/BottomNavigationBar';
+  static const HOMESCREEN = '/homescreen';
+  static const QUIZSCREEN = '/quizscreen';
+  static const COURSESSCREEN = '/coursesscreen';
+  static const VISCREEN = '/viscreen';
 }
