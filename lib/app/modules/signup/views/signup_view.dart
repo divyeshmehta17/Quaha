@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:quaha/app/constants/image_constant.dart';
+import 'package:quaha/app/modules/BottomNavigationBar/views/BottomNavigationBar.dart';
 import 'package:quaha/app/modules/Login/views/login_view.dart';
-import 'package:quaha/app/modules/verfication/views/verfication_view.dart';
+import 'package:quaha/app/modules/adminpanel/views/AdminPanelButton.dart';
+import 'package:quaha/app/routes/app_pages.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
 import 'package:quaha/app/services/text_style_util.dart';
@@ -25,44 +28,44 @@ class SignupView extends GetView<SignupController> {
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8)),
-                            child: Image.asset(ImageConstant.pngQuahaLogo)),
-                        25.kheightBox,
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Sign up Later',
-                              style: TextStyleUtil.roboto500(fontSize: 16),
-                            ))
-                      ]),
-                  25.kheightBox,
-                  Text(
-                    'Create Account',
-                    style: TextStyleUtil.rubik500(fontSize: 24),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Hero(
+                        tag: 'test',
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SvgPicture.asset(ImageConstant.svgQUAHA),
+                            Text(
+                              'Create Account',
+                              style: TextStyleUtil.rubik500(fontSize: 24),
+                            ).paddingOnly(top: 16.kh),
+                            Text(
+                              'Get Free access to the courses platform, with unlimited users & all the features!',
+                              style: TextStyleUtil.rubik500(fontSize: 16),
+                            ).paddingSymmetric(vertical: 22.kh),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  8.kheightBox,
-                  Text(
-                    'Get Free access to the courses platform, with unlimited users & all the features!',
-                    style: TextStyleUtil.rubik400(fontSize: 16),
-                  ),
-                  20.kheightBox,
                   QuahaTextField(
+                    readonly: false,
                     validator: (value) => controller.nameValidator(value),
                     controller: controller.nameController,
                     prefixIcon: Image.asset(ImageConstant.pngperson),
                     hintText: 'Full Name',
-                    obscureText: true,
-                    textStyle: TextStyleUtil.roboto400(fontSize: 14),
+                    obscureText: false,
+                    textStyle: TextStyleUtil.roboto400(
+                      fontSize: 14,
+                    ),
                   ),
                   16.kheightBox,
                   QuahaTextField(
+                    readonly: false,
                     validator: (value) => controller.emailValidator(value),
                     controller: controller.emailController,
                     prefixIcon: Image.asset(ImageConstant.pngMessage),
@@ -72,6 +75,7 @@ class SignupView extends GetView<SignupController> {
                   ),
                   16.kheightBox,
                   QuahaTextField(
+                    readonly: false,
                     validator: (value) => controller.passwordValidator(value),
                     controller: controller.passwordController,
                     prefixIcon: Image.asset(ImageConstant.pngLock),
@@ -81,6 +85,7 @@ class SignupView extends GetView<SignupController> {
                   ),
                   16.kheightBox,
                   QuahaTextField(
+                    readonly: false,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your Phone Number';
@@ -91,56 +96,63 @@ class SignupView extends GetView<SignupController> {
                     textInputType: const TextInputType.numberWithOptions(),
                     prefixIcon: Image.asset(ImageConstant.pngcall),
                     hintText: 'Phone Number',
-                    obscureText: true,
+                    obscureText: false,
                     textStyle: TextStyleUtil.roboto400(fontSize: 14),
                   ),
                   24.kheightBox,
-                  QuahaButton(
-                    onpressed: () {
-                      //if (controller.formKey.currentState!.validate())
-                      {
-                        Get.off(VerficationView());
-                      }
-                    },
-                    label: 'Register Now',
-                    labelStyle: TextStyleUtil.roboto400(fontSize: 14),
-                  ),
-                  24.kheightBox,
-                  Center(
-                    child: TextButton(
-                        onPressed: () {
-                          Get.to(const LoginView());
-                        },
-                        child: Text(
-                          'Already have an account? Login',
-                          style: TextStyleUtil.roboto500(fontSize: 16),
-                        )),
-                  ),
-                  32.kheightBox,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Container(
-                        height: 1.kh,
-                        width: 140.kw,
-                        color: Colors.white,
+                      QuahaButton(
+                        onpressed: () {
+                          //if (controller.formKey.currentState!.validate())
+                          {
+                            Get.to(QuahaBottomBar());
+                          }
+                        },
+                        label: 'Register Now',
+                        labelStyle: TextStyleUtil.roboto400(fontSize: 14),
+                      ).paddingOnly(bottom: 24.kh),
+                      Center(
+                        child: TextButton(
+                            onPressed: () {
+                              Get.to(const LoginView());
+                            },
+                            child: Text(
+                              'Already have an account? Login',
+                              style: TextStyleUtil.roboto500(fontSize: 16),
+                            )),
                       ),
-                      Text(
-                        'or',
-                        style: TextStyleUtil.roboto400(fontSize: 17),
-                      ),
-                      Container(
-                        height: 1.kh,
-                        width: 140.kw,
-                        color: Colors.white,
-                      ),
+                      AdminPanelButton(
+                          label: 'Admin Panel',
+                          onPressed: () {
+                            Get.toNamed(Routes.ADMINPANEL);
+                          }),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 1.kh,
+                            width: 140.kw,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            'or',
+                            style: TextStyleUtil.roboto400(fontSize: 17),
+                          ),
+                          Container(
+                            height: 1.kh,
+                            width: 140.kw,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ).paddingOnly(top: 32.kh),
+                      const SocialMediaLoginRow()
+                          .paddingSymmetric(horizontal: 52.kw, vertical: 44.kh),
                     ],
                   ),
-                  32.kheightBox,
-                  const SocialMediaLoginRow()
-                      .paddingSymmetric(horizontal: 52.kw, vertical: 44.kh),
                 ],
-              ).paddingSymmetric(horizontal: 16.kw, vertical: 16.kh),
+              ).paddingSymmetric(horizontal: 16.kw, vertical: 43.kh),
             ),
           ),
         ));

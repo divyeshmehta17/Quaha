@@ -25,7 +25,9 @@ class AppInterceptors extends Interceptor {
     isOverlayLoader ? DialogHelper.showLoading() : null;
     await Helpers.validateToken(
       onSuccess: () {
-        options.headers = {"token": Get.find<GetStorageService>().encjwToken};
+        options.headers = {
+          "Authorization": 'bearer ${Get.find<GetStorageService>().encjwToken}'
+        };
         super.onRequest(options, handler);
       },
     );

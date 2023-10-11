@@ -20,7 +20,7 @@ class VerficationView extends GetView<VerficationController> {
     return Scaffold(
         backgroundColor: context.brandColor1,
         appBar: QuahaAppBar(
-            title: Text('VERIFICATION'),
+            title: const Text('VERIFICATION'),
             textStyle: TextStyleUtil.rubik500(fontSize: 21),
             centerTitle: true,
             color: context.brandColor1),
@@ -38,7 +38,7 @@ class VerficationView extends GetView<VerficationController> {
               ).paddingOnly(top: 32.kh),
               OTPTextField(
                 length: 4,
-                style: TextStyle(fontSize: 17, color: Colors.white),
+                style: const TextStyle(fontSize: 17, color: Colors.white),
                 isDense: true,
                 textFieldAlignment: MainAxisAlignment.spaceAround,
                 fieldStyle: FieldStyle.underline,
@@ -72,7 +72,7 @@ class VerficationView extends GetView<VerficationController> {
               ).paddingOnly(bottom: 75.kh),
               QuahaButton(
                   onpressed: () {
-                    Get.offAll(Details1View());
+                    Get.offAll(const Details1View());
                   },
                   label: 'Register',
                   labelStyle: TextStyleUtil.roboto600(fontSize: 14)),

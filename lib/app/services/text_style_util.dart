@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class TextStyleUtil {
   static TextStyle roboto600({
     Color color = Colors.white,
+    double letterSpacing = 0,
     required double fontSize,
   }) {
     return TextStyle(
       fontFamily: 'Roboto',
       color: color,
+      letterSpacing: letterSpacing,
       fontSize: fontSize,
       fontWeight: FontWeight.w600,
     );
@@ -15,13 +17,27 @@ class TextStyleUtil {
 
   static TextStyle roboto500({
     Color color = Colors.white,
+    double? letterSpacing,
+    required double fontSize,
+  }) {
+    return TextStyle(
+      fontFamily: 'Roboto',
+      color: color,
+      letterSpacing: letterSpacing,
+      fontSize: fontSize,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  static TextStyle roboto700({
+    Color color = Colors.white,
     required double fontSize,
   }) {
     return TextStyle(
       fontFamily: 'Roboto',
       color: color,
       fontSize: fontSize,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w700,
     );
   }
 
@@ -76,12 +92,38 @@ class TextStyleUtil {
   static TextStyle rubik500({
     Color color = Colors.white,
     required double fontSize,
+    double? letterSpacing,
+  }) {
+    return TextStyle(
+      fontFamily: 'Rubik',
+      color: color,
+      letterSpacing: letterSpacing,
+      fontSize: fontSize,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  static TextStyle rubik600({
+    Color color = Colors.white,
+    required double fontSize,
   }) {
     return TextStyle(
       fontFamily: 'Rubik',
       color: color,
       fontSize: fontSize,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w600,
+    );
+  }
+
+  static TextStyle rubik700({
+    Color color = Colors.white,
+    required double fontSize,
+  }) {
+    return TextStyle(
+      fontFamily: 'Rubik',
+      color: color,
+      fontSize: fontSize,
+      fontWeight: FontWeight.w700,
     );
   }
 }

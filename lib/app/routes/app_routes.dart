@@ -11,12 +11,35 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const SIGNUP = _Paths.SIGNUP;
   static const WALKTHROUGH = _Paths.WALKTHROUGH;
-  static const VERFICATION = '/verfication';
+  static const VERFICATION = _Paths.WALKTHROUGH;
   static const DETAILS1 = _Paths.DETAILS1;
   static const HOMESCREEN = _Paths.HOMESCREEN;
   static const QUIZSCREEN = _Paths.QUIZSCREEN;
   static const COURSESSCREEN = _Paths.COURSESSCREEN;
   static const VISCREEN = _Paths.VISCREEN;
+  static const SEARCHSCREEN = _Paths.SEARCHSCREEN;
+  static const BOTTOMNAVBAR = _Paths.BottomNavBar;
+  static const SPLASH5 = _Paths.SPLASH5;
+  static const PROFILE = _Paths.PROFILE;
+  static const EDITPROFILE = _Paths.EDITPROFILE;
+  static const SEEALL = _Paths.SEEALL;
+  static const OVERLAYSCREEN = _Paths.OVERLAYSCREEN;
+  static const SEARCHTECHNOLOGY = _Paths.SEARCHTECHNOLOGY;
+  static const POPULARCOURSES = _Paths.POPULARCOURSES;
+  static const COURSEVIEWCONTENT = _Paths.COURSEVIEWCONTENT;
+  static const QUIZ_HOME_SCREEN = _Paths.QUIZ_HOME_SCREEN;
+  static const DISCOVERALLCONTENT = _Paths.DISCOVERALLCONTENT;
+  static const QUIZINTRO = _Paths.QUIZINTRO;
+  static const EXCITINGQUIZESSEEALL = _Paths.EXCITINGQUIZESSEEALL;
+  static const QUIZDETAILS = _Paths.QUIZDETAILS;
+  static const QUIZCOLLECTIONDETAILS = _Paths.QUIZCOLLECTIONDETAILS;
+  static const QUIZBRANDING = _Paths.QUIZBRANDING;
+  static const HINT = _Paths.HINT;
+  static const ADMINPANEL = _Paths.ADMINPANEL;
+  static const CATEGORIES = _Paths.CATEGORIES;
+  static const COURSEENTRYSCREEN = _Paths.COURSEENTRYSCREEN;
+  static const COURSEDETAILS = _Paths.COURSEDETAILS;
+  static const REWARDSANDBADGES = _Paths.REWARDSANDBADGES;
 }
 
 abstract class _Paths {
@@ -28,6 +51,7 @@ abstract class _Paths {
   static const SPLASH4 = '/splash4';
   static const LOGIN = '/login';
   static const SIGNUP = '/signup';
+  static const VERIFICATION = '/verification';
   static const WALKTHROUGH = '/walkthrough';
   static const DETAILS1 = '/details1';
   static const BottomNavBar = '/BottomNavigationBar';
@@ -35,4 +59,26 @@ abstract class _Paths {
   static const QUIZSCREEN = '/quizscreen';
   static const COURSESSCREEN = '/coursesscreen';
   static const VISCREEN = '/viscreen';
+  static const SEARCHSCREEN = '/searchscreen';
+  static const SPLASH5 = '/splash5';
+  static const PROFILE = '/profile';
+  static const EDITPROFILE = '/editprofile';
+  static const SEEALL = '/seeall';
+  static const OVERLAYSCREEN = '/overlayscreen';
+  static const SEARCHTECHNOLOGY = '/searchtechnology';
+  static const POPULARCOURSES = '/popularcourses';
+  static const COURSEVIEWCONTENT = '/courseviewcontent';
+  static const QUIZ_HOME_SCREEN = '/quiz-home-screen';
+  static const DISCOVERALLCONTENT = '/discoverallcontent';
+  static const QUIZINTRO = '/quizintro';
+  static const EXCITINGQUIZESSEEALL = '/excitingquizesseeall';
+  static const QUIZDETAILS = '/quizdetails';
+  static const QUIZCOLLECTIONDETAILS = '/quizcollectiondetails';
+  static const QUIZBRANDING = '/quizbranding';
+  static const HINT = '/hint';
+  static const ADMINPANEL = '/adminpanel';
+  static const CATEGORIES = '/categories';
+  static const COURSEENTRYSCREEN = '/courseentryscreen';
+  static const COURSEDETAILS = '/coursedetails';
+  static const REWARDSANDBADGES = '/rewardsandbadges';
 }

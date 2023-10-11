@@ -9,19 +9,22 @@ class QuahaAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final bool? centerTitle;
   final TextStyle? textStyle;
-
+  final bool? bgcolor;
+  List<Widget>? actions;
   final Color? color;
   final Function()? ontap;
   bool isLeading;
   QuahaAppBar({
     Key? key,
     this.title,
+    this.actions,
     this.centerTitle,
     this.isLeading = true,
     this.leading,
     this.color,
     this.ontap,
     this.textStyle,
+    this.bgcolor,
   }) : super(key: key);
 
   @override
@@ -31,18 +34,17 @@ class QuahaAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleTextStyle: textStyle,
       elevation: 0,
       centerTitle: centerTitle,
-      leading: isLeading
-          ? GestureDetector(
-              onTap: ontap ??
-                  () {
-                    Get.back();
-                  },
-              child: Icon(
-                CupertinoIcons.back,
-                size: 24.kw,
-              ),
-            )
-          : null,
+      actions: actions,
+      leading: GestureDetector(
+        onTap: () {
+          Get.back();
+        },
+        child: Icon(
+          CupertinoIcons.back,
+          size: 24.kw,
+          color: Colors.white,
+        ),
+      ),
       backgroundColor: color ?? context.brandColor1,
     );
   }

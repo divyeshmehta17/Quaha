@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quaha/app/services/auth.dart';
+
+import '../../../services/snackbar.dart';
+import '../../verfication/views/verfication_view.dart';
 
 class SignupController extends GetxController {
   //TODO: Implement SignupController
@@ -8,6 +12,7 @@ class SignupController extends GetxController {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   void onInit() {
     super.onInit();
@@ -60,6 +65,17 @@ class SignupController extends GetxController {
       return 'please enter email';
     } else if (!value.isEmail) {
       return "enter a valid email";
+    }
+  }
+
+  onSignUpTap() async {
+    if (!await Get.find<Auth>().createEmailPass(
+        email: emailController.text, pass: passwordController.text)) {
+      showMySnackbar(msg: 'Some error occured');
+      print('if loop');
+    } else {
+      Get.off(const VerficationView());
+      print('checking api');
     }
   }
 }

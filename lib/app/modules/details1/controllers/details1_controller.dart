@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../BottomNavigationBar/views/BottomNavigationBar.dart';
+import 'package:quaha/app/modules/BottomNavigationBar/views/BottomNavigationBar.dart';
 
 class Details1Controller extends GetxController {
   //TODO: Implement Details1Controller

@@ -12,7 +12,11 @@ class SplashView extends GetView<SplashController> {
     return Scaffold(
         body: SafeArea(
       child: Stack(
-        children: [Image.asset(ImageConstant.pngSplashBG)],
+        alignment: AlignmentDirectional.center,
+        children: [
+          Image.asset(ImageConstant.pngSplashBG),
+          Image.asset(ImageConstant.pngQuahaLogo),
+        ],
       ),
     ));
   }

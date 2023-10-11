@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
+import 'package:quaha/app/services/snackbar.dart';
 import 'package:stacked_firebase_auth/stacked_firebase_auth.dart';
 
 import 'dialog_helper.dart';
@@ -46,13 +47,22 @@ class Auth extends GetxService {
     print('EmailPass : ${await result.user?.getIdToken()}');
   }
 
-  createEmailPass({required String email, required String pass}) async {
-    final result = await auth
+  Future<bool> createEmailPass(
+      {required String email, required String pass}) async {
+    DialogHelper.showLoading();
+    bool status = false;
+    await auth
         .createAccountWithEmail(email: email, password: pass)
         .then((value) async {
-      await handleGetContact();
+      if (!value.hasError) {
+        await handleGetContact();
+        status = true;
+      } else {
+        showMySnackbar(msg: value.errorMessage!);
+      }
     });
-    print('EmailPass : ${await result.user?.getIdToken()}');
+    DialogHelper.hideDialog();
+    return status;
   }
 
 //phone number with country code

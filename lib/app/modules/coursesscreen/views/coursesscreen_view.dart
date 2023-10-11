@@ -7,7 +7,7 @@ class CoursesscreenView extends GetView<CoursesscreenController> {
   const CoursesscreenView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'CoursesscreenView is working',
         style: TextStyle(fontSize: 20),

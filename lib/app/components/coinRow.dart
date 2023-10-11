@@ -21,7 +21,7 @@ class CustomCoinRowWidget extends StatelessWidget {
               child: SvgPicture.asset(ImageConstant.svgpodium).paddingAll(5)),
         ),
         CustomContainer(
-          backgroundColor: Color.fromRGBO(14, 23, 95, 0.58),
+          backgroundColor: const Color.fromRGBO(14, 23, 95, 0.58),
           borderRadiusGeometry: BorderRadius.circular(15),
           child: RowWithSvg(
             icon: ImageConstant.svgdollar,
@@ -29,7 +29,7 @@ class CustomCoinRowWidget extends StatelessWidget {
           ),
         ),
         CustomContainer(
-          backgroundColor: Color.fromRGBO(14, 23, 95, 0.58),
+          backgroundColor: const Color.fromRGBO(14, 23, 95, 0.58),
           borderRadiusGeometry: BorderRadius.circular(15),
           child: RowWithSvg(
             icon: ImageConstant.svgGroup,
@@ -37,7 +37,7 @@ class CustomCoinRowWidget extends StatelessWidget {
           ),
         ),
         CustomContainer(
-          backgroundColor: Color.fromRGBO(14, 23, 95, 0.58),
+          backgroundColor: const Color.fromRGBO(14, 23, 95, 0.58),
           borderRadiusGeometry: BorderRadius.circular(15),
           child: RowWithSvg(
             icon: ImageConstant.svgcrown,
@@ -54,7 +54,8 @@ class CustomContainer extends StatelessWidget {
   final Widget child;
   final BorderRadiusGeometry borderRadiusGeometry;
   CustomContainer(
-      {required this.backgroundColor,
+      {super.key,
+      required this.backgroundColor,
       required this.child,
       required this.borderRadiusGeometry});
 

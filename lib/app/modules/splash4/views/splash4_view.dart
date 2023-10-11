@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quaha/app/modules/Login/views/login_view.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
 import 'package:quaha/app/services/text_style_util.dart';
 
-import '../../../services/custombuttons.dart';
 import '../controllers/splash4_controller.dart';
 
 class Splash4View extends GetView<Splash4Controller> {
@@ -20,25 +18,15 @@ class Splash4View extends GetView<Splash4Controller> {
             Image.asset('assets/images/handy-deadline.png'),
             110.kheightBox,
             Text(
-              'MARKETPLACE',
+              'VIRTUAL INSIGHT',
               style: TextStyleUtil.roboto600(fontSize: 24.kh),
             ),
             16.kheightBox,
             Text(
-              'Redeem rewards & unlock \nexciting opportunities',
+              'Earn on-the-Job Skills, tools\nand work experience.',
               style: TextStyleUtil.montserrat400(fontSize: 17.kh),
             ),
             77.kheightBox,
-            NextButton(
-              onTap: () {
-                Get.offAll(
-                  LoginView(),
-                  transition: Transition.rightToLeft,
-                );
-              },
-              color: Colors.blue,
-              iconColor: Colors.white,
-            )
           ],
         ));
   }
