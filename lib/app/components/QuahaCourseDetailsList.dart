@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:quaha/app/components/common_image_view.dart';
 import 'package:quaha/app/constants/image_constant.dart';
 import 'package:quaha/app/modules/Courseentryscreen/controllers/courseentryscreen_controller.dart';
+import 'package:quaha/app/routes/app_pages.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
 import 'package:quaha/app/services/text_style_util.dart';
@@ -30,31 +31,36 @@ class QuahaCourseDetailsList extends GetView<CourseentryscreenController> {
                 borderRadius: BorderRadius.circular(8.kw)),
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.kw)),
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Row(
-                  children: [
-                    CommonImageView(
-                      imagePath: ImageConstant.pngmoduleimage,
-                    ).paddingOnly(right: 13.kw),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Module Name',
-                          style: TextStyleUtil.rubik500(fontSize: 14.kh),
-                        ),
-                        Text(
-                          'Lorem ipsum dolor sit amet,\nnsectetur adipiscing elit.',
-                          style: TextStyleUtil.rubik400(fontSize: 12.kh),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ).paddingOnly(top: 16.kh, bottom: 16.kh),
+            title: GestureDetector(
+              onTap: () {
+                Get.toNamed(Routes.COURSEVIEWCONTENT);
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    children: [
+                      CommonImageView(
+                        imagePath: ImageConstant.pngmoduleimage,
+                      ).paddingOnly(right: 13.kw),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Module Name',
+                            style: TextStyleUtil.rubik500(fontSize: 14.kh),
+                          ),
+                          Text(
+                            'Lorem ipsum dolor sit amet,\nnsectetur adipiscing elit.',
+                            style: TextStyleUtil.rubik400(fontSize: 12.kh),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ).paddingOnly(top: 16.kh, bottom: 16.kh),
+            ),
             children: [
               Obx(
                 () => Column(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:quaha/app/components/common_image_view.dart';
 import 'package:quaha/app/constants/image_constant.dart';
+import 'package:quaha/app/routes/app_pages.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
 import 'package:quaha/app/services/text_style_util.dart';
@@ -22,30 +23,48 @@ class LoginView extends GetView<LoginController> {
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SvgPicture.asset(ImageConstant.svgQUAHA),
-                    Text(
-                      'Log in to QUAHA',
-                      style: TextStyleUtil.rubik500(fontSize: 24),
-                    ).paddingOnly(top: 16.kh),
-                    Text(
-                      'Manage your account, check notifications,\ncomment on videos and more.',
-                      style: TextStyleUtil.rubik500(fontSize: 16),
-                    ).paddingSymmetric(vertical: 22.kh),
-                    QuahaTextField(
-                      readonly: false,
-                      controller: controller.emailController,
-                      prefixIcon: Image.asset(ImageConstant.pngMessage),
-                      hintText: 'Email',
-                      obscureText: false,
-                      textStyle: TextStyleUtil.roboto400(fontSize: 14),
-                    ).paddingSymmetric(vertical: 16.kh),
+                    Container(
+                      height: 48.kh,
+                      width: 48.kw,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8.kh)),
+                      child: CommonImageView(
+                        imagePath: ImageConstant.pngQuahaLogo,
+                      ).paddingAll(10.kw),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Get.toNamed(Routes.BOTTOMNAVBAR);
+                        },
+                        child: Text(
+                          'Sign up Later',
+                          style: TextStyleUtil.rubik500(fontSize: 16.kh),
+                        ))
                   ],
                 ),
+                Text(
+                  'Up Skill in 10 minutes',
+                  style: TextStyleUtil.rubik500(fontSize: 24),
+                ).paddingOnly(top: 16.kh),
+                Text(
+                  'Gain access to the best courses, career and business insights.Do this all while having fun.',
+                  style: TextStyleUtil.rubik500(fontSize: 16),
+                ).paddingSymmetric(vertical: 22.kh),
+                QuahaTextField(
+                  readonly: false,
+                  controller: controller.emailController,
+                  prefixIcon: Image.asset(ImageConstant.pngMessage),
+                  hintText: 'Email',
+                  obscureText: false,
+                  textStyle: TextStyleUtil.roboto400(fontSize: 14),
+                ).paddingSymmetric(vertical: 16.kh),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -59,7 +78,9 @@ class LoginView extends GetView<LoginController> {
                     ),
                     24.kheightBox,
                     QuahaButton(
-                      onpressed: () {},
+                      onpressed: () {
+                        Get.toNamed(Routes.BOTTOMNAVBAR);
+                      },
                       label: 'Login',
                       labelStyle: TextStyleUtil.roboto400(fontSize: 14),
                     ).paddingOnly(bottom: 24.kh),
@@ -99,7 +120,7 @@ class LoginView extends GetView<LoginController> {
                   ],
                 ),
               ],
-            ).paddingSymmetric(horizontal: 16.kw, vertical: 115.kh),
+            ).paddingSymmetric(horizontal: 16.kw, vertical: 18.kh),
           ),
         ));
   }

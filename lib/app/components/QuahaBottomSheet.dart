@@ -44,25 +44,27 @@ class QuahaBottomSheet extends StatelessWidget {
             'Search Filter',
             style: TextStyleUtil.rubik500(fontSize: 16),
           ).paddingOnly(top: 12.kh),
-          GroupButton(
-              options: GroupButtonOptions(
-                  groupingType: GroupingType.wrap,
-                  unselectedColor: context.containerBG,
-                  runSpacing: 3,
-                  mainGroupAlignment: MainGroupAlignment.start,
-                  unselectedTextStyle: TextStyleUtil.roboto400(fontSize: 14.kh),
-                  borderRadius: BorderRadius.circular(8)),
-              buttons: [
-                'Design',
-                'Visual Identity',
-                'Technology',
-                'UI/UX',
-                'Advertising',
-                'Web Design',
-                'Motion',
-                'Administration',
-                'Graphic',
-              ]),
+          Expanded(
+            child: GroupButton(
+                options: GroupButtonOptions(
+                    groupingType: GroupingType.wrap,
+                    unselectedColor: context.containerBG,
+                    runSpacing: 3,
+                    mainGroupAlignment: MainGroupAlignment.start,
+                    unselectedTextStyle:
+                        TextStyleUtil.roboto400(fontSize: 14.kh),
+                    borderRadius: BorderRadius.circular(8)),
+                buttons: [
+                  'Design',
+                  'Visual Identity',
+                  'Technology',
+                  'UI/UX',
+                  'Advertising',
+                  'Web Design',
+                  'Motion',
+                  'Administration',
+                ]),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -82,14 +84,17 @@ class QuahaBottomSheet extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: Text('Clear All').paddingSymmetric(vertical: 18.kh),
+                  child: Text(
+                    'Clear All',
+                    style: TextStyleUtil.rubik500(fontSize: 14.kh),
+                  ).paddingSymmetric(vertical: 18.kh),
                 ),
               ),
               SizedBox(width: 16), // Add spacing between the buttons
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    // Add your action for the second button
+Get.back();
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
@@ -102,7 +107,7 @@ class QuahaBottomSheet extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: Text('Apply Filter').paddingSymmetric(vertical: 18.kh),
+                  child: Text('Apply Filter'      ,  style: TextStyleUtil.rubik500(fontSize: 14.kh),).paddingSymmetric(vertical: 18.kh),
                 ),
               ),
             ],

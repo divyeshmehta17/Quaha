@@ -1,6 +1,9 @@
 class ImageConstant {
 //SVGs
+  static String svgpodcastbackbutton = 'assets/images/podcastbackbutton.svg';
+  static String svgpodcastnextbutton = 'assets/images/podcastnextbutton.svg';
   static String svgcommunity = 'assets/images/community.svg';
+  static String svgunlock = 'assets/images/unlock.svg';
   static String svgcreditcards = 'assets/images/creditcards.svg';
   static String svginvitefriends = 'assets/images/invitefriends.svg';
   static String svgleaderboard = 'assets/images/leaderboard.svg';
@@ -10,6 +13,7 @@ class ImageConstant {
   static String svgshield = 'assets/images/shield.svg';
   static String svgshop = 'assets/images/shop.svg';
   static String svgdesignsoftware = 'assets/images/designsoftware.svg';
+  static String svgverficationbadge1 = 'assets/images/verifiedbatch1.svg';
   static String svgdataanalysis = 'assets/images/dataanalysis.svg';
   static String svgtarget = 'assets/images/target.svg';
   static String svghiring = 'assets/images/hiring.svg';
@@ -43,12 +47,14 @@ class ImageConstant {
   static String svgranking = 'assets/images/AfricanBeauty.png';
   static String svgranking1 = 'assets/images/ranking1.svg';
   static String svgQUAHA = 'assets/images/quaha.svg';
+  static String svgquggisad = 'assets/images/quggisad.svg';
   static String svghandyfriendsspeechbubbles =
       'assets/images/handy-friends-speech-bubbles.svg';
   static String svghandyfriendsspeechbubblessolving =
       'assets/images/handy-friends-speech-bubbles-solving-the-problem.svg';
   static String svghandymachinelearning =
       'assets/images/handy-machine-learning.svg';
+  static String svgspeechbubble = 'assets/images/speechbubble.svg';
   static String svgedit = 'assets/images/edit.svg';
   static String svgverifiedbatch = 'assets/images/verifiedbatch.svg';
   static String svgcalculator = 'assets/images/calculator.svg';
@@ -58,6 +64,9 @@ class ImageConstant {
   static String svgquestionmark = 'assets/images/questionmark.svg';
   //PNGs
   static String pngavatar = 'assets/images/avatar.png';
+  static String pnglogout = 'assets/images/Logout.png';
+  static String pngcategoriescontainerbg =
+      'assets/images/categoriescontainerbg.png';
   static String pngprofile = 'assets/images/profile.png';
   static String png1stCertificate = 'assets/images/1stCertificate.png';
   static String pngzebra = 'assets/images/zebra.png';
@@ -65,6 +74,11 @@ class ImageConstant {
   static String pngAfricanBeauty = 'assets/images/AfricanBeauty.png';
   static String pngreadyforquiz = 'assets/images/readyforquiz.png';
   static String pngstraigthzebra = 'assets/images/straigthzebra.png';
+  static String pngTomatoe = 'assets/images/Tomatoe.png';
+  static String pngpodcast = 'assets/images/podcast.png';
+  static String pngquiggicoursepageimgae =
+      'assets/images/quiggicoursepageimgae.png';
+  static String pngquiggihead = 'assets/images/quiggihead.png';
   static String pngwomenwithcamera = 'assets/images/womenwithcamera.png';
   static String pngnatgeo = 'assets/images/natgeo.png';
   static String pngnatgeobg = 'assets/images/ecitingquizbg.png';
@@ -90,8 +104,12 @@ class ImageConstant {
   static String pngPabloBooks =
       'assets/images/pablo-so-many-books-to-study.png';
   static String pngQuahaLogo = 'assets/images/QUAHALOGO.png';
+  static String pngcourse1BG = 'assets/images/course1BG.png';
   static String pngQUAHALOGOFILLED = 'assets/images/QUAHALOGOFILLED.png';
   static String pngapple = 'assets/images/apple.png';
   static String pngfacebook = 'assets/images/facebook.png';
   static String pngGoogle = 'assets/images/Google.png';
+  static String pngdevelopment = 'assets/images/development.png';
+  static String pngmarketing = 'assets/images/marketing.png';
+  static String pnguiux = 'assets/images/uiux.png';
 }

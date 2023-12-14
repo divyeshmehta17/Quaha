@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:quaha/app/components/common_image_view.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
 
@@ -8,6 +9,8 @@ import '../constants/image_constant.dart';
 import '../services/text_style_util.dart';
 
 class CustomCoinRowWidget extends StatelessWidget {
+  final bool? showStreak;
+  CustomCoinRowWidget({this.showStreak = true});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,15 +27,7 @@ class CustomCoinRowWidget extends StatelessWidget {
           backgroundColor: const Color.fromRGBO(14, 23, 95, 0.58),
           borderRadiusGeometry: BorderRadius.circular(15),
           child: RowWithSvg(
-            icon: ImageConstant.svgdollar,
-            text: '2.1k',
-          ),
-        ),
-        CustomContainer(
-          backgroundColor: const Color.fromRGBO(14, 23, 95, 0.58),
-          borderRadiusGeometry: BorderRadius.circular(15),
-          child: RowWithSvg(
-            icon: ImageConstant.svgGroup,
+            pngicon: ImageConstant.pngquoins,
             text: '100',
           ),
         ),
@@ -44,6 +39,10 @@ class CustomCoinRowWidget extends StatelessWidget {
             text: '5',
           ),
         ),
+        if (showStreak == false)
+          CommonImageView(
+            svgPath: ImageConstant.svgfire,
+          )
       ],
     );
   }
@@ -51,13 +50,15 @@ class CustomCoinRowWidget extends StatelessWidget {
 
 class CustomContainer extends StatelessWidget {
   final Color backgroundColor;
+
   final Widget child;
   final BorderRadiusGeometry borderRadiusGeometry;
-  CustomContainer(
-      {super.key,
-      required this.backgroundColor,
-      required this.child,
-      required this.borderRadiusGeometry});
+  CustomContainer({
+    super.key,
+    required this.backgroundColor,
+    required this.child,
+    required this.borderRadiusGeometry,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -72,16 +73,26 @@ class CustomContainer extends StatelessWidget {
 }
 
 class RowWithSvg extends StatelessWidget {
-  final String icon;
+  final String? icon;
+  final String? pngicon;
   final String text;
 
-  RowWithSvg({required this.icon, required this.text});
+  RowWithSvg({
+    this.icon,
+    required this.text,
+    this.pngicon,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SvgPicture.asset(icon),
+        CommonImageView(
+          svgPath: icon,
+          imagePath: pngicon,
+          height: 24.kh,
+          width: 24.kw,
+        ),
         Text(
           text,
           style: TextStyleUtil.rubik500(fontSize: 14),

@@ -172,7 +172,7 @@ class OverlayscreenView extends GetView<OverlayscreenController> {
                             ),
                           ],
                         ).paddingOnly(bottom: 24.kh),
-                        QuahaCategoryListView(text: 'test', height: 90)
+                        QuahaCategoryListView(text: ['test'], height: 90)
                             .paddingOnly(bottom: 24.kh),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -197,11 +197,10 @@ class OverlayscreenView extends GetView<OverlayscreenController> {
                       child: Column(
                         children: [
                           Padding(
-                            padding:
-                                const EdgeInsets.only(top: 450.0, left: 240),
+                            padding: EdgeInsets.only(top: 450.kh, left: 240.kw),
                             child: Row(
                               children: [
-                                SvgPicture.asset(ImageConstant.svgZebraHello),
+                                //SvgPicture.asset(ImageConstant.svgZebraHello),
                               ],
                             ),
                           ),

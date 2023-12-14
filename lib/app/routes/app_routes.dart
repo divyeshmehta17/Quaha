@@ -40,6 +40,12 @@ abstract class Routes {
   static const COURSEENTRYSCREEN = _Paths.COURSEENTRYSCREEN;
   static const COURSEDETAILS = _Paths.COURSEDETAILS;
   static const REWARDSANDBADGES = _Paths.REWARDSANDBADGES;
+  static const COURSE1 = _Paths.COURSE1;
+  static const COURSETIP = _Paths.COURSETIP;
+  static const COURSE_PAGE1 = _Paths.COURSE_PAGE1;
+  static const COURSEPAGE2 = _Paths.COURSEPAGE2;
+  static const UNLOCKMODULE = _Paths.UNLOCKMODULE;
+  static const INSTRUCTORINFORMATION = _Paths.INSTRUCTORINFORMATION;
 }
 
 abstract class _Paths {
@@ -81,4 +87,10 @@ abstract class _Paths {
   static const COURSEENTRYSCREEN = '/courseentryscreen';
   static const COURSEDETAILS = '/coursedetails';
   static const REWARDSANDBADGES = '/rewardsandbadges';
+  static const COURSE1 = '/course1';
+  static const COURSETIP = '/coursetip';
+  static const COURSE_PAGE1 = '/course-page1';
+  static const COURSEPAGE2 = '/coursepage2';
+  static const UNLOCKMODULE = '/unlockmodule';
+  static const INSTRUCTORINFORMATION = '/instructorinformation';
 }

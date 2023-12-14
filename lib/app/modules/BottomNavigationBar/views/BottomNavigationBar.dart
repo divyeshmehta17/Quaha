@@ -6,9 +6,10 @@ import 'package:quaha/app/modules/coursesscreen/views/coursesscreen_view.dart';
 import 'package:quaha/app/modules/homescreen/controllers/homescreen_controller.dart';
 import 'package:quaha/app/modules/homescreen/views/homescreen_view.dart';
 import 'package:quaha/app/services/colors.dart';
+import 'package:quaha/app/services/responsive_size.dart';
+import 'package:quaha/app/services/text_style_util.dart';
 
 import '../../quiz/quizscreen/views/quizscreen_view.dart';
-import '../../viscreen/views/viscreen_view.dart';
 import '../controllers/BottomNavigationBarController.dart';
 
 class QuahaBottomBar extends StatelessWidget {
@@ -18,7 +19,6 @@ class QuahaBottomBar extends StatelessWidget {
     HomescreenView(),
     QuizscreenView(),
     CoursesscreenView(),
-    ViscreenView(),
   ];
 
   @override
@@ -31,6 +31,8 @@ class QuahaBottomBar extends StatelessWidget {
           bgcontroller.triggerSearchBarAnimation();
         },
         child: Stack(
+          alignment: AlignmentDirectional.centerEnd,
+          //fit: StackFit.expand,
           children: [
             Obx(() => pages[controller.selectedPageIndex.value]),
             Obx(() {
@@ -46,9 +48,8 @@ class QuahaBottomBar extends StatelessWidget {
             Obx(() {
               return Visibility(
                 visible: controller.isZebraVisible.value,
-                child: SlideTransition(
-                  position: controller.offsetAnimation,
-                  child: SvgPicture.asset(ImageConstant.svgZebraHello),
+                child: SvgPicture.asset(
+                  ImageConstant.svgZebraHello,
                 ),
               );
             }),
@@ -61,44 +62,97 @@ class QuahaBottomBar extends StatelessWidget {
             visible: !controller.showOverlay.value,
             child: BottomNavigationBar(
               currentIndex: controller.selectedPageIndex.value,
+              //fixedColor: context.yellow,
               onTap: (index) => controller.changePage(index),
               backgroundColor: context.brandColor1,
+              selectedLabelStyle: TextStyleUtil.rubik500(fontSize: 10.kh),
+              unselectedLabelStyle:
+                  TextStyleUtil.rubik500(fontSize: 10.kh, color: Colors.white),
               items: [
                 BottomNavigationBarItem(
-                  icon: SvgPicture.asset(ImageConstant.svgHome),
-                  activeIcon: SvgPicture.asset(
-                    ImageConstant.svgHome,
-                    color: Colors.red,
+                  icon: Column(
+                    children: [
+                      SvgPicture.asset(ImageConstant.svgHome)
+                          .paddingOnly(bottom: 5.kh),
+                      Text(
+                        'Home',
+                        style: TextStyleUtil.rubik500(
+                            fontSize: 10.kh, color: Colors.white),
+                      ),
+                    ],
                   ),
-                  label: 'Home',
+                  activeIcon: Column(
+                    children: [
+                      SvgPicture.asset(
+                        ImageConstant.svgHome,
+                        color: context.yellow,
+                      ).paddingOnly(bottom: 5.kh),
+                      Text(
+                        'Home',
+                        style: TextStyleUtil.rubik500(
+                            fontSize: 10.kh, color: context.yellow),
+                      ),
+                    ],
+                  ),
+                  label: '',
                   backgroundColor: context.brandColor1,
                 ),
                 BottomNavigationBarItem(
                   backgroundColor: context.brandColor1,
-                  icon: SvgPicture.asset(ImageConstant.svgQuiz),
-                  activeIcon: SvgPicture.asset(
-                    ImageConstant.svgQuiz,
-                    color: Colors.red,
+                  icon: Column(
+                    children: [
+                      SvgPicture.asset(
+                        ImageConstant.svgQuiz,
+                      ).paddingOnly(bottom: 5.kh),
+                      Text(
+                        'Quiz',
+                        style: TextStyleUtil.rubik500(
+                            fontSize: 10.kh, color: Colors.white),
+                      ),
+                    ],
                   ),
-                  label: 'Profile',
+                  activeIcon: Column(
+                    children: [
+                      SvgPicture.asset(
+                        ImageConstant.svgQuiz,
+                        color: context.yellow,
+                      ).paddingOnly(bottom: 5.kh),
+                      Text(
+                        'Quiz',
+                        style: TextStyleUtil.rubik500(
+                            fontSize: 10.kh, color: context.yellow),
+                      ),
+                    ],
+                  ),
+                  label: '',
                 ),
                 BottomNavigationBarItem(
-                  icon: SvgPicture.asset(
-                    ImageConstant.svgCourses,
+                  icon: Column(
+                    children: [
+                      SvgPicture.asset(
+                        ImageConstant.svgCourses,
+                      ).paddingOnly(bottom: 5.kh),
+                      Text(
+                        'Courses',
+                        style: TextStyleUtil.rubik500(
+                            fontSize: 10.kh, color: Colors.white),
+                      ),
+                    ],
                   ),
-                  activeIcon: SvgPicture.asset(
-                    ImageConstant.svgCourses,
-                    color: Colors.red,
+                  activeIcon: Column(
+                    children: [
+                      SvgPicture.asset(
+                        ImageConstant.svgCourses,
+                        color: context.yellow,
+                      ).paddingOnly(bottom: 5.kh),
+                      Text(
+                        'Courses',
+                        style: TextStyleUtil.rubik500(
+                            fontSize: 10.kh, color: context.yellow),
+                      ),
+                    ],
                   ),
-                  label: 'Settings',
-                ),
-                BottomNavigationBarItem(
-                  icon: SvgPicture.asset(ImageConstant.svgVI),
-                  activeIcon: SvgPicture.asset(
-                    ImageConstant.svgVI,
-                    color: Colors.red,
-                  ),
-                  label: 'Settings',
+                  label: '',
                 ),
               ],
             ),

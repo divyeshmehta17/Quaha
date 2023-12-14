@@ -11,7 +11,7 @@ import 'app/services/storage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await initGetServices();
   SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],

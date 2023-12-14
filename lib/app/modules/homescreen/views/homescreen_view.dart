@@ -35,102 +35,104 @@ class HomescreenView extends GetView<HomescreenController> {
       drawer: QuahaMenu(),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Stack(
+          child: Column(
             children: [
-              Column(
-                children: [
-                  CustomCoinRowWidget(),
-                  CustomMenuRowWidget(
-                    onTap: _openDrawer,
-                  ),
-                  SizeTransition(
-                    sizeFactor: Tween<double>(
-                      begin: 0.0,
-                      end: 1,
-                    ).animate(controller.animationController),
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.to(
-                          const SearchscreenView(),
-                          curve: Curves.easeOut,
-                          duration: const Duration(milliseconds: 300),
-                        );
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: context.containerBG,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Row(
-                          children: [
-                            SvgPicture.asset(ImageConstant.svgSearch)
-                                .paddingOnly(right: 8.kw),
-                            Text(
-                              'Search Bar',
-                              style: TextStyleUtil.roboto400(fontSize: 12.kh),
-                            ),
-                          ],
-                        ).paddingSymmetric(horizontal: 15.kw, vertical: 12.kh),
-                      ),
+              CustomCoinRowWidget(),
+              CustomMenuRowWidget(
+                onTap: _openDrawer,
+              ),
+              SizeTransition(
+                sizeFactor: Tween<double>(
+                  begin: 0.0,
+                  end: 1,
+                ).animate(controller.animationController),
+                child: GestureDetector(
+                  onTap: () {
+                    Get.to(
+                      const SearchscreenView(),
+                      curve: Curves.easeOut,
+                      duration: const Duration(milliseconds: 300),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: context.containerBG,
+                      borderRadius: BorderRadius.circular(8),
                     ),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(ImageConstant.svgSearch)
+                            .paddingOnly(right: 8.kw),
+                        Text(
+                          'Search Bar',
+                          style: TextStyleUtil.roboto400(fontSize: 12.kh),
+                        ),
+                      ],
+                    ).paddingSymmetric(horizontal: 15.kw, vertical: 12.kh),
                   ),
-                  const ContainerCard().paddingOnly(top: 24.kh, bottom: 24.kh),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Category',
-                        style: TextStyleUtil.roboto600(fontSize: 24.kh),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Get.to(Categories(), curve: Curves.easeOut);
-                        },
-                        child: Text('See All',
-                            style: TextStyleUtil.roboto500(fontSize: 12.kh)),
-                      ),
-                    ],
-                  ).paddingOnly(bottom: 24.kh),
-                  SizeTransition(
-                    sizeFactor: Tween<double>(
-                      begin: 0.0,
-                      end: 1,
-                    ).animate(controller.animationController),
-                    child: QuahaCategoryListView(text: 'test', height: 90.kh)
-                        .paddingOnly(bottom: 21.kh),
+                ),
+              ),
+              const ContainerCard(
+                label: 'The Future of Design: Introduction to Illustration',
+                text: 'Quaha Arts Center',
+              ).paddingOnly(top: 24.kh, bottom: 24.kh),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Category',
+                    style: TextStyleUtil.roboto600(fontSize: 24.kh),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Popular Courses',
-                        style: TextStyleUtil.roboto600(fontSize: 24.kh),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Get.to(PopularcoursesView());
-                        },
-                        child: Text('See All',
-                            style: TextStyleUtil.roboto500(fontSize: 12.kh)),
-                      ),
-                    ],
-                  ).paddingOnly(bottom: 24.kh),
-                  QuahaPopularCoursesListView(
-                    courseName: controller.courseName,
-                    authorName: controller.authorName,
-                    onTap: () {
-                      Map<String, dynamic> courseData =
-                          controller.getCourseData();
-                      Get.toNamed(
-                        Routes.COURSEENTRYSCREEN,
-                        arguments: courseData,
-                      );
+                  TextButton(
+                    onPressed: () {
+                      Get.to(Categories(), curve: Curves.easeOut);
                     },
-                  )
+                    child: Text('See All',
+                        style: TextStyleUtil.roboto500(fontSize: 12.kh)),
+                  ),
                 ],
-              ).paddingSymmetric(horizontal: 16.kw, vertical: 16.kh),
+              ).paddingOnly(bottom: 24.kh),
+              SizeTransition(
+                sizeFactor: Tween<double>(
+                  begin: 0.0,
+                  end: 1,
+                ).animate(controller.animationController),
+                child: QuahaCategoryListView(
+                        imagePath: controller.categoriesBG,
+                        text: controller.categoriesName,
+                        height: 90.kh)
+                    .paddingOnly(bottom: 21.kh),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Popular Courses',
+                    style: TextStyleUtil.roboto600(fontSize: 24.kh),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Get.to(PopularcoursesView());
+                    },
+                    child: Text('See All',
+                        style: TextStyleUtil.roboto500(fontSize: 12.kh)),
+                  ),
+                ],
+              ).paddingOnly(bottom: 24.kh),
+              QuahaPopularCoursesListView(
+                courseName: controller.courseName,
+                authorName: controller.authorName,
+                svgPath: controller.categoriesBG,
+                onTap: () {
+                  Map<String, dynamic> courseData = controller.getCourseData();
+                  Get.toNamed(
+                    Routes.COURSEENTRYSCREEN,
+                    arguments: courseData,
+                  );
+                },
+              )
             ],
-          ),
+          ).paddingSymmetric(horizontal: 16.kw, vertical: 16.kh),
         ),
       ),
     );

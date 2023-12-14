@@ -5,9 +5,11 @@ import 'package:quaha/app/services/responsive_size.dart';
 import '../services/text_style_util.dart';
 
 class QuahaCategoryListView extends StatelessWidget {
-  String text;
+  List<String>? text;
   double height;
-  QuahaCategoryListView({super.key, required this.text, required this.height});
+  List<String>? imagePath;
+  QuahaCategoryListView(
+      {super.key, this.text, required this.height, this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +18,21 @@ class QuahaCategoryListView extends StatelessWidget {
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           shrinkWrap: true,
-          itemCount: 5,
+          itemCount: 4,
           itemBuilder: (BuildContext context, index) {
             return Container(
               width: 92,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8), color: Colors.white),
+                image: DecorationImage(
+                    image: AssetImage(imagePath![index]), fit: BoxFit.fill),
+                borderRadius: BorderRadius.circular(8),
+              ),
               child: Center(
                 child: Text(
-                  text,
+                  text![index],
                   style: TextStyleUtil.rubikWetPaint400(
-                      fontSize: 12, color: Colors.black),
+                    fontSize: 12,
+                  ),
                 ),
               ),
             ).paddingOnly(right: 16.kw);

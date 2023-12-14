@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quaha/app/components/quaha_app_bar.dart';
+import 'package:quaha/app/routes/app_pages.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
 
@@ -27,7 +28,21 @@ class CourseviewcontentView extends GetView<CourseviewcontentController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: QuahaAppBar(),
+      appBar: QuahaAppBar(
+        title: Text(
+          'Podcast Basics',
+          style: TextStyleUtil.rubik500(fontSize: 20.kh),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.share_outlined,
+                color: Colors.white,
+              ))
+        ],
+      ),
       body: DefaultTabController(
         length: 2,
         child: NestedScrollView(
@@ -170,7 +185,9 @@ class LessonContents extends StatelessWidget {
                                     top: 16.kh,
                                     bottom: 23.kh),
                             QuahaButton(
-                                    onpressed: () {},
+                                    onpressed: () {
+                                      Get.toNamed(Routes.UNLOCKMODULE);
+                                    },
                                     label: 'Unlock Module',
                                     svgPath: ImageConstant.svglock,
                                     labelStyle:
@@ -570,8 +587,10 @@ class AboutCourse extends StatelessWidget {
           ).paddingOnly(top: 16.kh, bottom: 16.kh),
           QuahaGroupButtons(buttonName: buttonName).paddingOnly(bottom: 28.kh),
           QuahaButton(
-              onpressed: () {},
-              label: 'Start Virtual Insights',
+              onpressed: () {
+                Get.toNamed(Routes.COURSE1);
+              },
+              label: 'Start Course',
               svgPath: ImageConstant.svglock,
               labelStyle: TextStyleUtil.roboto600(fontSize: 14.kh)),
         ],

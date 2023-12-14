@@ -4,6 +4,8 @@ import '../modules/BottomNavigationBar/bindings/BottomNavigationBarbinding.dart'
 import '../modules/BottomNavigationBar/views/BottomNavigationBar.dart';
 import '../modules/Categories/bindings/Categories_binding.dart';
 import '../modules/Categories/views/Categories_view.dart';
+import '../modules/CoursePage1/bindings/course_page1_binding.dart';
+import '../modules/CoursePage1/views/course_page1_view.dart';
 import '../modules/Courseentryscreen/bindings/courseentryscreen_binding.dart';
 import '../modules/Courseentryscreen/views/courseentryscreen_view.dart';
 import '../modules/Login/bindings/login_binding.dart';
@@ -12,8 +14,14 @@ import '../modules/Splash/bindings/splash_binding.dart';
 import '../modules/Splash/views/splash_view.dart';
 import '../modules/adminpanel/bindings/adminpanel_binding.dart';
 import '../modules/adminpanel/views/adminpanel_view.dart';
+import '../modules/course1/bindings/course1_binding.dart';
+import '../modules/course1/views/course1_view.dart';
 import '../modules/coursedetails/bindings/coursedetails_binding.dart';
 import '../modules/coursedetails/views/coursedetails_view.dart';
+import '../modules/coursepage2/bindings/coursepage2_binding.dart';
+import '../modules/coursepage2/views/coursepage2_view.dart';
+import '../modules/coursetip/bindings/coursetip_binding.dart';
+import '../modules/coursetip/views/coursetip_view.dart';
 import '../modules/courseviewcontent/bindings/courseviewcontent_binding.dart';
 import '../modules/courseviewcontent/views/courseviewcontent_view.dart';
 import '../modules/details1/bindings/details1_binding.dart';
@@ -24,6 +32,8 @@ import '../modules/editprofile/bindings/editprofile_binding.dart';
 import '../modules/editprofile/views/editprofile_view.dart';
 import '../modules/homescreen/bindings/homescreen_binding.dart';
 import '../modules/homescreen/views/homescreen_view.dart';
+import '../modules/instructorinformation/bindings/instructorinformation_binding.dart';
+import '../modules/instructorinformation/views/instructorinformation_view.dart';
 import '../modules/overlayscreen/bindings/overlayscreen_binding.dart';
 import '../modules/overlayscreen/views/overlayscreen_view.dart';
 import '../modules/popularcourses/bindings/popularcourses_binding.dart';
@@ -62,6 +72,8 @@ import '../modules/splash4/bindings/splash4_binding.dart';
 import '../modules/splash4/views/splash4_view.dart';
 import '../modules/splash5/bindings/splash5_binding.dart';
 import '../modules/splash5/views/splash5_view.dart';
+import '../modules/unlockmodule/bindings/unlockmodule_binding.dart';
+import '../modules/unlockmodule/views/unlockmodule_view.dart';
 import '../modules/verfication/bindings/verfication_binding.dart';
 import '../modules/verfication/views/verfication_view.dart';
 import '../modules/viscreen/bindings/viscreen_binding.dart';
@@ -241,6 +253,36 @@ class AppPages {
       name: _Paths.REWARDSANDBADGES,
       page: () => const RewardsandbadgesView(),
       binding: RewardsandbadgesBinding(),
+    ),
+    GetPage(
+      name: _Paths.COURSE1,
+      page: () => const Course1View(),
+      binding: Course1Binding(),
+    ),
+    GetPage(
+      name: _Paths.COURSETIP,
+      page: () => const CoursetipView(),
+      binding: CoursetipBinding(),
+    ),
+    GetPage(
+      name: _Paths.COURSE_PAGE1,
+      page: () => const CoursePage1View(),
+      binding: CoursePage1Binding(),
+    ),
+    GetPage(
+      name: _Paths.COURSEPAGE2,
+      page: () => const Coursepage2View(),
+      binding: Coursepage2Binding(),
+    ),
+    GetPage(
+      name: _Paths.UNLOCKMODULE,
+      page: () => const UnlockmoduleView(),
+      binding: UnlockmoduleBinding(),
+    ),
+    GetPage(
+      name: _Paths.INSTRUCTORINFORMATION,
+      page: () => const InstructorinformationView(),
+      binding: InstructorinformationBinding(),
     ),
   ];
 }

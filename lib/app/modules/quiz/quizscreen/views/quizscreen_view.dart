@@ -29,7 +29,9 @@ class QuizscreenView extends GetView<QuizscreenController> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  CustomCoinRowWidget().paddingOnly(top: 17.kh, bottom: 28.kh),
+                  CustomCoinRowWidget(
+                    showStreak: true,
+                  ).paddingOnly(top: 17.kh, bottom: 28.kh),
                   Container(
                     decoration: BoxDecoration(
                       color: context.containerBG,
@@ -83,7 +85,10 @@ class QuizscreenView extends GetView<QuizscreenController> {
                       ],
                     ).paddingSymmetric(horizontal: 15.kw, vertical: 12.kh),
                   ),
-                  const ContainerCard().paddingOnly(top: 24.kh, bottom: 23.kh),
+                  const ContainerCard(
+                    label: 'The Future of Design: Introduction to Illustration',
+                    text: 'Quaha Arts Center',
+                  ).paddingOnly(top: 24.kh, bottom: 23.kh),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

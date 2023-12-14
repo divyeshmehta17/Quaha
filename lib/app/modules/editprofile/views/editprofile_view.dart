@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quaha/app/components/Quaha_Button.dart';
 import 'package:quaha/app/components/Quaha_Text_Field.dart';
+import 'package:quaha/app/components/common_image_view.dart';
+import 'package:quaha/app/components/quaha_app_bar.dart';
+import 'package:quaha/app/constants/image_constant.dart';
 import 'package:quaha/app/modules/profile/views/profile_view.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
@@ -16,6 +19,13 @@ class EditprofileView extends GetView<EditprofileController> {
     Get.lazyPut(() => EditprofileController());
     return Scaffold(
       backgroundColor: context.brandColor1,
+      appBar: QuahaAppBar(
+        title: Text(
+          'Profile',
+          style: TextStyleUtil.roboto700(fontSize: 17.kh),
+        ),
+        centerTitle: true,
+      ),
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
@@ -23,15 +33,12 @@ class EditprofileView extends GetView<EditprofileController> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Center(
-              child: Text(
-                'Profile',
-                style: TextStyleUtil.roboto700(fontSize: 17),
-              ),
-            ),
-            Center(
               child: CircleAvatar(
                 radius: 64.kw,
                 backgroundColor: Colors.white,
+                child: CommonImageView(
+                  imagePath: ImageConstant.pngprofile,
+                ),
               ),
             ).paddingOnly(top: 32.kh),
             Text(
@@ -53,7 +60,7 @@ class EditprofileView extends GetView<EditprofileController> {
                           controller: controller.nameController,
                           hintText: 'Name',
                           obscureText: false,
-                          textStyle: TextStyleUtil.roboto400(fontSize: 14),
+                          textStyle: TextStyleUtil.roboto400(fontSize: 14.kh),
                           readonly: false)
                       .paddingOnly(bottom: 16.kh),
                   Text(
@@ -64,7 +71,7 @@ class EditprofileView extends GetView<EditprofileController> {
                           controller: controller.emailController,
                           hintText: 'abc@gmail.com',
                           obscureText: false,
-                          textStyle: TextStyleUtil.roboto400(fontSize: 14),
+                          textStyle: TextStyleUtil.roboto400(fontSize: 14.kh),
                           readonly: false)
                       .paddingOnly(bottom: 16.kh),
                   Text(
@@ -75,7 +82,7 @@ class EditprofileView extends GetView<EditprofileController> {
                           controller: controller.phoneController,
                           hintText: '+91 123456789',
                           obscureText: false,
-                          textStyle: TextStyleUtil.roboto400(fontSize: 14),
+                          textStyle: TextStyleUtil.roboto400(fontSize: 14.kh),
                           textInputType: TextInputType.numberWithOptions(),
                           readonly: false)
                       .paddingOnly(bottom: 16.kh),

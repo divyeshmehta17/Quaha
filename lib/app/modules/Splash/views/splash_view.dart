@@ -14,7 +14,14 @@ class SplashView extends GetView<SplashController> {
       child: Stack(
         alignment: AlignmentDirectional.center,
         children: [
-          Image.asset(ImageConstant.pngSplashBG),
+          Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage(
+                      ImageConstant.pngSplashBG,
+                    ))),
+          ),
           Image.asset(ImageConstant.pngQuahaLogo),
         ],
       ),

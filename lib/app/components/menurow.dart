@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:quaha/app/components/common_image_view.dart';
 import 'package:quaha/app/modules/profile/views/profile_view.dart';
 import 'package:quaha/app/services/responsive_size.dart';
 
@@ -28,6 +29,9 @@ class CustomMenuRowWidget extends StatelessWidget {
           child: CircleAvatar(
             radius: 15,
             backgroundColor: Colors.white,
+            child: CommonImageView(
+              imagePath: ImageConstant.pngprofile,
+            ),
           ),
         ),
       ],

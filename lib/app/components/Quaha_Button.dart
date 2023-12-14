@@ -8,6 +8,7 @@ class QuahaButton extends StatelessWidget {
   final Function() onpressed;
   final String label;
   final String? svgPath;
+  final Color? backgroundColor;
   final String? imagePath;
   final TextStyle labelStyle;
   const QuahaButton(
@@ -16,13 +17,14 @@ class QuahaButton extends StatelessWidget {
       required this.label,
       required this.labelStyle,
       this.svgPath,
-      this.imagePath});
+      this.imagePath,
+      this.backgroundColor});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: context.nextButtonColor,
+            backgroundColor: backgroundColor ?? context.nextButtonColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.kw)),
             padding: EdgeInsets.symmetric(horizontal: 12.kw, vertical: 16.kh)),

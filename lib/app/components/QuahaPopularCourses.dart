@@ -12,12 +12,14 @@ import '../services/text_style_util.dart';
 class QuahaPopularCoursesListView extends StatelessWidget {
   final List<String>? courseName;
   final List<String>? authorName;
+  final List<String>? svgPath;
   final Function()? onTap;
   QuahaPopularCoursesListView({
     Key? key,
     this.courseName,
     this.authorName,
     this.onTap,
+    this.svgPath,
   }) : super(key: key);
 
   @override
@@ -41,8 +43,19 @@ class QuahaPopularCoursesListView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    SvgPicture.asset(ImageConstant.svgmarektingdummyimage)
-                        .paddingOnly(top: 7.kh, bottom: 5.kh),
+                    Container(
+                      width: 115.kw,
+                      height: 115.kh,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: context.containerBG,
+                      ),
+                      child: CommonImageView(
+                        imagePath: svgPath![index],
+                        fit: BoxFit.fill,
+                      ).paddingOnly(
+                          top: 7.kh, bottom: 5.kh, right: 7.kw, left: 7.kw),
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -84,7 +97,7 @@ class QuahaPopularCoursesListView extends StatelessWidget {
                           ],
                         ),
                       ],
-                    ).paddingOnly(left: 6.kw, right: 6.kw),
+                    ).paddingOnly(left: 6.kw, right: 6.kw, top: 10),
                   ],
                 ),
               ).paddingOnly(right: 16.kw),

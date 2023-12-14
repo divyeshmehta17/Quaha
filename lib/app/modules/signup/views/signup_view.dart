@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:quaha/app/constants/image_constant.dart';
 import 'package:quaha/app/modules/BottomNavigationBar/views/BottomNavigationBar.dart';
 import 'package:quaha/app/modules/Login/views/login_view.dart';
-import 'package:quaha/app/modules/adminpanel/views/AdminPanelButton.dart';
 import 'package:quaha/app/routes/app_pages.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
@@ -12,6 +10,7 @@ import 'package:quaha/app/services/text_style_util.dart';
 
 import '../../../components/Quaha_Button.dart';
 import '../../../components/Quaha_Text_Field.dart';
+import '../../../components/common_image_view.dart';
 import '../../../components/socialmedialoginrow.dart';
 import '../controllers/signup_controller.dart';
 
@@ -38,7 +37,31 @@ class SignupView extends GetView<SignupController> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SvgPicture.asset(ImageConstant.svgQUAHA),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  height: 48.kh,
+                                  width: 48.kw,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius:
+                                          BorderRadius.circular(8.kh)),
+                                  child: CommonImageView(
+                                    imagePath: ImageConstant.pngQuahaLogo,
+                                  ).paddingAll(10.kw),
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      Get.toNamed(Routes.BOTTOMNAVBAR);
+                                    },
+                                    child: Text(
+                                      'Sign up Later',
+                                      style: TextStyleUtil.rubik500(
+                                          fontSize: 16.kh),
+                                    ))
+                              ],
+                            ),
                             Text(
                               'Create Account',
                               style: TextStyleUtil.rubik500(fontSize: 24),
@@ -123,11 +146,11 @@ class SignupView extends GetView<SignupController> {
                               style: TextStyleUtil.roboto500(fontSize: 16),
                             )),
                       ),
-                      AdminPanelButton(
-                          label: 'Admin Panel',
-                          onPressed: () {
-                            Get.toNamed(Routes.ADMINPANEL);
-                          }),
+                      // AdminPanelButton(
+                      //     label: 'Admin Panel',
+                      //     onPressed: () {
+                      //       Get.toNamed(Routes.ADMINPANEL);
+                      //     }),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:quaha/app/components/common_image_view.dart';
+import 'package:quaha/app/components/quaha_app_bar.dart';
 import 'package:quaha/app/constants/image_constant.dart';
 import 'package:quaha/app/modules/editprofile/views/editprofile_view.dart';
 import 'package:quaha/app/services/colors.dart';
@@ -15,39 +17,43 @@ class ProfileView extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: context.brandColor1,
+        appBar: QuahaAppBar(
+          title: Text(
+            'Profile',
+            style: TextStyleUtil.roboto600(fontSize: 20),
+          ),
+          centerTitle: true,
+          actions: [
+            GestureDetector(
+                onTap: () {},
+                child: CommonImageView(
+                  imagePath: ImageConstant.pnglogout,
+                )).paddingOnly(right: 20.kw),
+          ],
+        ),
         body: SafeArea(
             child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      'Profile',
-                      style: TextStyleUtil.roboto600(fontSize: 20),
-                    ).paddingOnly(right: 118.kw),
-                    GestureDetector(
-                        child: SvgPicture.asset(ImageConstant.svglogout))
-                  ],
-                ),
-              ),
-              Center(
                 child: CircleAvatar(
                   radius: 64.kw,
                   backgroundColor: Colors.white,
+                  child: CommonImageView(
+                    imagePath: ImageConstant.pngprofile,
+                  ),
                 ),
               ).paddingOnly(top: 20.kh),
               Center(
                   child: Text(
                 'Profile Name',
-                style: TextStyleUtil.rubik500(fontSize: 20),
+                style: TextStyleUtil.rubik500(fontSize: 20.kh),
               ).paddingOnly(top: 16.kh)),
               Center(
                   child: Text(
                 'xyz@gmail.com',
-                style: TextStyleUtil.rubik400(fontSize: 17),
+                style: TextStyleUtil.rubik400(fontSize: 17.kh),
               ).paddingOnly(top: 16.kh)),
               Center(
                 child: ElevatedButton(

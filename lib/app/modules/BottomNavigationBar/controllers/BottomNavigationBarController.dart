@@ -21,14 +21,6 @@ class BottomTabController extends GetxController
       vsync: this,
     )..forward();
 
-    offsetAnimation = Tween<Offset>(
-      begin: const Offset(10.5, 0.0),
-      end: const Offset(2.0, 1.5),
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInBack,
-    ));
-
     super.onInit();
   }
 
