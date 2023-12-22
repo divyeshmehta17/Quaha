@@ -38,6 +38,7 @@ class DiscoverallcontentView extends GetView<DiscoverallcontentController> {
                   children: [
                     CommonImageView(
                       imagePath: ImageConstant.pngwomenwithcamera,
+                      width: 375.kw,
                     ),
                     QuahaAppBar(
                       color: Colors.transparent,

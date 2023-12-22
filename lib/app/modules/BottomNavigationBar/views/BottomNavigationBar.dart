@@ -60,102 +60,104 @@ class QuahaBottomBar extends StatelessWidget {
         () {
           return Visibility(
             visible: !controller.showOverlay.value,
-            child: BottomNavigationBar(
-              currentIndex: controller.selectedPageIndex.value,
-              //fixedColor: context.yellow,
-              onTap: (index) => controller.changePage(index),
-              backgroundColor: context.brandColor1,
-              selectedLabelStyle: TextStyleUtil.rubik500(fontSize: 10.kh),
-              unselectedLabelStyle:
-                  TextStyleUtil.rubik500(fontSize: 10.kh, color: Colors.white),
-              items: [
-                BottomNavigationBarItem(
-                  icon: Column(
-                    children: [
-                      SvgPicture.asset(ImageConstant.svgHome)
-                          .paddingOnly(bottom: 5.kh),
-                      Text(
-                        'Home',
-                        style: TextStyleUtil.rubik500(
-                            fontSize: 10.kh, color: Colors.white),
+            child: ClipRRect(
+                borderRadius:
+                    BorderRadius.vertical(top: Radius.circular(16.kw)),
+                child: BottomNavigationBar(
+                  currentIndex: controller.selectedPageIndex.value,
+                  onTap: (index) => controller.changePage(index),
+                  backgroundColor: context.bottomBarColor,
+                  selectedLabelStyle: TextStyleUtil.rubik500(fontSize: 10.kh),
+                  unselectedLabelStyle: TextStyleUtil.rubik500(
+                      fontSize: 10.kh, color: Colors.white),
+                  items: [
+                    BottomNavigationBarItem(
+                      icon: Column(
+                        children: [
+                          SvgPicture.asset(ImageConstant.svgHome)
+                              .paddingOnly(bottom: 5.kh),
+                          Text(
+                            'Home',
+                            style: TextStyleUtil.rubik500(
+                                fontSize: 10.kh, color: Colors.white),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  activeIcon: Column(
-                    children: [
-                      SvgPicture.asset(
-                        ImageConstant.svgHome,
-                        color: context.yellow,
-                      ).paddingOnly(bottom: 5.kh),
-                      Text(
-                        'Home',
-                        style: TextStyleUtil.rubik500(
-                            fontSize: 10.kh, color: context.yellow),
+                      activeIcon: Column(
+                        children: [
+                          SvgPicture.asset(
+                            ImageConstant.svgHome,
+                            color: context.yellow,
+                          ).paddingOnly(bottom: 5.kh),
+                          Text(
+                            'Home',
+                            style: TextStyleUtil.rubik500(
+                                fontSize: 10.kh, color: context.yellow),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  label: '',
-                  backgroundColor: context.brandColor1,
-                ),
-                BottomNavigationBarItem(
-                  backgroundColor: context.brandColor1,
-                  icon: Column(
-                    children: [
-                      SvgPicture.asset(
-                        ImageConstant.svgQuiz,
-                      ).paddingOnly(bottom: 5.kh),
-                      Text(
-                        'Quiz',
-                        style: TextStyleUtil.rubik500(
-                            fontSize: 10.kh, color: Colors.white),
+                      label: '',
+                      backgroundColor: context.brandColor1,
+                    ),
+                    BottomNavigationBarItem(
+                      backgroundColor: context.brandColor1,
+                      icon: Column(
+                        children: [
+                          SvgPicture.asset(
+                            ImageConstant.svgQuiz,
+                          ).paddingOnly(bottom: 5.kh),
+                          Text(
+                            'Quiz',
+                            style: TextStyleUtil.rubik500(
+                                fontSize: 10.kh, color: Colors.white),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  activeIcon: Column(
-                    children: [
-                      SvgPicture.asset(
-                        ImageConstant.svgQuiz,
-                        color: context.yellow,
-                      ).paddingOnly(bottom: 5.kh),
-                      Text(
-                        'Quiz',
-                        style: TextStyleUtil.rubik500(
-                            fontSize: 10.kh, color: context.yellow),
+                      activeIcon: Column(
+                        children: [
+                          SvgPicture.asset(
+                            ImageConstant.svgQuiz,
+                            color: context.yellow,
+                          ).paddingOnly(bottom: 5.kh),
+                          Text(
+                            'Quiz',
+                            style: TextStyleUtil.rubik500(
+                                fontSize: 10.kh, color: context.yellow),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon: Column(
-                    children: [
-                      SvgPicture.asset(
-                        ImageConstant.svgCourses,
-                      ).paddingOnly(bottom: 5.kh),
-                      Text(
-                        'Courses',
-                        style: TextStyleUtil.rubik500(
-                            fontSize: 10.kh, color: Colors.white),
+                      label: '',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Column(
+                        children: [
+                          SvgPicture.asset(
+                            ImageConstant.svgCourses,
+                          ).paddingOnly(bottom: 5.kh),
+                          Text(
+                            'Courses',
+                            style: TextStyleUtil.rubik500(
+                                fontSize: 10.kh, color: Colors.white),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  activeIcon: Column(
-                    children: [
-                      SvgPicture.asset(
-                        ImageConstant.svgCourses,
-                        color: context.yellow,
-                      ).paddingOnly(bottom: 5.kh),
-                      Text(
-                        'Courses',
-                        style: TextStyleUtil.rubik500(
-                            fontSize: 10.kh, color: context.yellow),
+                      activeIcon: Column(
+                        children: [
+                          SvgPicture.asset(
+                            ImageConstant.svgCourses,
+                            color: context.yellow,
+                          ).paddingOnly(bottom: 5.kh),
+                          Text(
+                            'Courses',
+                            style: TextStyleUtil.rubik500(
+                                fontSize: 10.kh, color: context.yellow),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  label: '',
-                ),
-              ],
-            ),
+                      label: '',
+                    ),
+                  ],
+                )),
           );
         },
       ),

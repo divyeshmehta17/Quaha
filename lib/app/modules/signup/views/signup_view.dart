@@ -123,6 +123,33 @@ class SignupView extends GetView<SignupController> {
                     textStyle: TextStyleUtil.roboto400(fontSize: 14),
                   ),
                   24.kheightBox,
+                  Row(
+                    children: [
+                      Obx(
+                        () => Checkbox(
+                            side: BorderSide(color: context.containerBG),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4.kw),
+                            ),
+                            value: controller.isChecked.value,
+                            onChanged: (value) {
+                              controller.isChecked.value = value!;
+                            }),
+                      ),
+                      Expanded(
+                        child: Text.rich(TextSpan(
+                            text: 'Agree to our ',
+                            style: TextStyleUtil.rubik500(fontSize: 14.kh),
+                            children: <InlineSpan>[
+                              TextSpan(
+                                text: 'terms and condition & privacy policy',
+                                style: TextStyleUtil.rubik700(fontSize: 14.kh),
+                              )
+                            ])),
+                      ),
+                    ],
+                  ),
+                  24.kheightBox,
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [

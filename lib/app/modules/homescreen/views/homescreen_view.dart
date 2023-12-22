@@ -37,10 +37,10 @@ class HomescreenView extends GetView<HomescreenController> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              CustomCoinRowWidget(),
               CustomMenuRowWidget(
                 onTap: _openDrawer,
-              ),
+              ).paddingOnly(top: 10.kh, bottom: 25.kh),
+              CustomCoinRowWidget().paddingOnly(bottom: 25.kh),
               SizeTransition(
                 sizeFactor: Tween<double>(
                   begin: 0.0,

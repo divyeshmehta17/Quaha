@@ -11,6 +11,7 @@ class SignupController extends GetxController {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
+  final RxBool isChecked = false.obs;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override

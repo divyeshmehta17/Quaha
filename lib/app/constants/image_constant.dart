@@ -62,9 +62,16 @@ class ImageConstant {
   static String svgQuoraIcon = 'assets/images/QuoraIcon.svg';
   static String svgheycloud = 'assets/images/heycloud.svg';
   static String svgquestionmark = 'assets/images/questionmark.svg';
+  static String svgpuzzel = 'assets/images/puzzel.svg';
+  static String svggiftfill = 'assets/images/gift-fill.svg';
+  static String svgdownload = 'assets/images/download.svg';
+  static String svgtreasurepurse = 'assets/images/treasurepurse.svg';
   //PNGs
   static String pngavatar = 'assets/images/avatar.png';
+  static String pngquiztrophy = 'assets/images/quiztrophy.png';
   static String pnglogout = 'assets/images/Logout.png';
+  static String pngdummyquizimage2 = 'assets/images/dummyquizimage2.png';
+  static String pngpuzzel = 'assets/images/puzzel.png';
   static String pngcategoriescontainerbg =
       'assets/images/categoriescontainerbg.png';
   static String pngprofile = 'assets/images/profile.png';

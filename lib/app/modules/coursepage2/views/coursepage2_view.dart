@@ -16,166 +16,158 @@ class Coursepage2View extends GetView<Coursepage2Controller> {
   const Coursepage2View({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.coursetipBGColor,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Obx(
-            () => Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                CustomCoinRowWidget()
-                    .paddingOnly(right: 17.kw, left: 17.kw, bottom: 7.kh),
-                if (controller.isQuiz.value == false)
+    return Obx(
+      () => Scaffold(
+        backgroundColor: controller.updatedIndex.value == 2
+            ? Colors.blue
+            : context.coursetipBGColor,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Obx(
+              () => Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CustomCoinRowWidget()
+                      .paddingOnly(right: 17.kw, left: 17.kw, bottom: 7.kh),
+                  if (controller.isQuiz.value == false)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            CupertinoIcons.xmark,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.kw),
+                            color: context.purple,
+                          ),
+                          child: Text(
+                            '${controller.updatedIndex}/${controller.courseContent.length + 1} ',
+                            style: TextStyleUtil.rubik500(fontSize: 12.kh),
+                          ).paddingAll(5.kh),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.share_outlined,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ).paddingOnly(top: 10.kh)
+                  else
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.blue,
+                              border: Border(
+                                  top:
+                                      BorderSide(color: context.grey, width: 2),
+                                  bottom: BorderSide(
+                                      color: context.grey, width: 2))),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Quiz',
+                                style: TextStyleUtil.rubik500(fontSize: 18.kh),
+                              ),
+                            ],
+                          ).paddingOnly(
+                              left: 22.kw,
+                              right: 13.kw,
+                              top: 12.kh,
+                              bottom: 9.kh),
+                        ),
+                        Text(
+                          'Select the correct answers',
+                          style: TextStyleUtil.rubik500(fontSize: 14.kh),
+                        ).paddingOnly(top: 15.kh, left: 17.kw),
+                      ],
+                    ),
+                  AspectRatio(
+                    aspectRatio: 0.65,
+                    child: PageView.builder(
+                      controller: controller.pageController,
+                      itemCount: controller.courseContent.length + 1,
+                      onPageChanged: (index) {
+                        controller.updatePageIndex(index);
+                      },
+                      itemBuilder: (BuildContext context, int index) {
+                        if (index < controller.courseContent.length) {
+                          return courseMaterial(
+                            label: controller.courseContent[index],
+                            imagepath: controller.courseContentImage[index],
+                            isQuiz: controller.isQuiz.value,
+                          ).paddingOnly(right: 17.kw);
+                        } else {
+                          // Display the quiz page
+                          return courseMaterial(
+                            label:
+                                'Develop an outline for every episode that summarizes each point you would like to discuss in them.',
+                            isQuiz: true,
+                          );
+                        }
+                      },
+                    ),
+                  ).paddingOnly(top: 15.kh),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          CupertinoIcons.xmark,
-                          color: Colors.white,
+                      GestureDetector(
+                        onTap: () {
+                          print(controller.updatedIndex.value);
+                          print(controller.isQuiz.value);
+                          controller.updatedIndex.value;
+                          controller.pageController.previousPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.linear,
+                          );
+                          if (controller.updatedIndex.value > 4) {
+                            controller.isQuiz.value = false;
+                          }
+                        },
+                        child: CommonImageView(
+                          svgPath: ImageConstant.svgpodcastbackbutton,
+                          height: 25.kh,
+                          width: 25.kh,
                         ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.kw),
-                          color: context.purple,
-                        ),
-                        child: Text(
-                          '${controller.updatedIndex}/${controller.courseContent.length + 1} ',
-                          style: TextStyleUtil.rubik500(fontSize: 12.kh),
-                        ).paddingAll(5.kh),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.share_outlined,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ).paddingOnly(top: 10.kh)
-                else
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: Colors.blue,
-                            border: Border(
-                                top: BorderSide(color: context.grey, width: 2),
-                                bottom:
-                                    BorderSide(color: context.grey, width: 2))),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Quiz',
-                              style: TextStyleUtil.rubik500(fontSize: 18.kh),
-                            ),
-                            Row(
-                              children: [
-                                CommonImageView(
-                                  svgPath: ImageConstant.svgdollar,
-                                ).paddingOnly(right: 8.kw),
-                                Text(
-                                  '10',
-                                  style:
-                                      TextStyleUtil.rubik500(fontSize: 14.kh),
-                                ),
-                              ],
+                      ).paddingOnly(left: 17.kw),
+                      controller.updatedIndex.value == 4
+                          ? CommonImageView(
+                              imagePath: ImageConstant.pngquiggihead,
                             )
-                          ],
-                        ).paddingOnly(
-                            left: 22.kw,
-                            right: 13.kw,
-                            top: 12.kh,
-                            bottom: 9.kh),
+                          : const SizedBox(),
+                      GestureDetector(
+                        onTap: () {
+                          print(controller.updatedIndex.value);
+                          print(controller.isQuiz.value);
+                          controller.pageController.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.linear,
+                          );
+                          if (controller.updatedIndex.value == 4) {
+                            controller.isQuiz.value = true;
+                          }
+                        },
+                        child: CommonImageView(
+                          svgPath: ImageConstant.svgpodcastnextbutton,
+                          height: 25.kh,
+                          width: 25.kh,
+                        ),
                       ),
-                      Text(
-                        'Select the correct answers',
-                        style: TextStyleUtil.rubik500(fontSize: 14.kh),
-                      ).paddingOnly(top: 15.kh, left: 17.kw),
                     ],
-                  ),
-                AspectRatio(
-                  aspectRatio: 0.65,
-                  child: PageView.builder(
-                    controller: controller.pageController,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: controller.courseContent.length + 1,
-                    onPageChanged: (index) {
-                      controller.updatePageIndex(index);
-                    },
-                    itemBuilder: (BuildContext context, int index) {
-                      if (index < controller.courseContent.length) {
-                        return courseMaterial(
-                          label: controller.courseContent[index],
-                          imagepath: controller.courseContentImage[index],
-                          isQuiz: controller.isQuiz.value,
-                        ).paddingOnly(right: 17.kw);
-                      } else {
-                        // Display the quiz page
-                        return courseMaterial(
-                          label:
-                              'Develop an outline for every episode that summarizes each point you would like to discuss in them.',
-                          isQuiz: true,
-                        );
-                      }
-                    },
-                  ),
-                ).paddingOnly(top: 15.kh),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        print(controller.updatedIndex.value);
-                        print(controller.isQuiz.value);
-                        controller.updatedIndex.value;
-                        controller.pageController.previousPage(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.linear,
-                        );
-                        if (controller.updatedIndex.value > 4) {
-                          controller.isQuiz.value = false;
-                        }
-                      },
-                      child: CommonImageView(
-                        svgPath: ImageConstant.svgpodcastbackbutton,
-                        height: 25.kh,
-                        width: 25.kh,
-                      ),
-                    ).paddingOnly(left: 17.kw),
-                    controller.updatedIndex.value == 4
-                        ? CommonImageView(
-                            imagePath: ImageConstant.pngquiggihead,
-                          )
-                        : const SizedBox(),
-                    GestureDetector(
-                      onTap: () {
-                        print(controller.updatedIndex.value);
-                        print(controller.isQuiz.value);
-                        controller.pageController.nextPage(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.linear,
-                        );
-                        if (controller.updatedIndex.value == 4) {
-                          controller.isQuiz.value = true;
-                        }
-                      },
-                      child: CommonImageView(
-                        svgPath: ImageConstant.svgpodcastnextbutton,
-                        height: 25.kh,
-                        width: 25.kh,
-                      ),
-                    ),
-                  ],
-                ).paddingOnly(right: 17.kw, bottom: 29.kh),
-              ],
-            ).paddingOnly(top: 17.kw),
+                  ).paddingOnly(right: 17.kw, bottom: 29.kh),
+                ],
+              ).paddingOnly(top: 17.kw),
+            ),
           ),
         ),
       ),

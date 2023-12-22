@@ -6,6 +6,7 @@ import 'package:quaha/app/services/responsive_size.dart';
 
 class QuahaAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
+  final double? leadingWidth;
   final Widget? leading;
   final bool? centerTitle;
   final TextStyle? textStyle;
@@ -25,6 +26,7 @@ class QuahaAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.ontap,
     this.textStyle,
     this.bgcolor,
+    this.leadingWidth,
   }) : super(key: key);
 
   @override
@@ -35,16 +37,18 @@ class QuahaAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       centerTitle: centerTitle,
       actions: actions,
-      leading: GestureDetector(
-        onTap: () {
-          Get.back();
-        },
-        child: Icon(
-          CupertinoIcons.back,
-          size: 24.kw,
-          color: Colors.white,
-        ),
-      ),
+      leadingWidth: leadingWidth,
+      leading: leading ??
+          GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+            child: Icon(
+              CupertinoIcons.back,
+              size: 24.kw,
+              color: Colors.white,
+            ),
+          ),
       backgroundColor: color ?? context.brandColor1,
     );
   }

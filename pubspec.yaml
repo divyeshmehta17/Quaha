@@ -68,6 +68,18 @@ dependencies:
   simple_progress_indicators: ^0.2.0
   bulleted_list: ^0.0.1+0.1a
   contained_tab_bar_view_with_custom_page_navigator: ^0.1.3
+  flutter_animate_on_scroll: ^0.0.2
+  swipeable_card_stack: ^0.0.5
+  card_swiper: ^3.0.1
+  flutter_card_swiper: ^6.0.0
+  fl_chart: ^0.65.0
+  flutter_charts: ^0.5.2
+  animated_line_chart: ^0.0.3
+  charts_flutter: ^0.12.0
+  charts_flutter_new: ^0.12.0
+  chart_sparkline: ^1.0.14
+  simple_circular_progress_bar: ^1.0.2
+  syncfusion_flutter_charts: ^21.2.4
 
 dev_dependencies:
   flutter_test:

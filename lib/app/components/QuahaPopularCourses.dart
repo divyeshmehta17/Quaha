@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:quaha/app/components/common_image_view.dart';
+import 'package:quaha/app/routes/app_pages.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
 
@@ -452,7 +453,7 @@ class QuahaDiscoverSeeAllGridView extends StatelessWidget {
   Widget _buildGridItem(BuildContext context, int index) {
     return GestureDetector(
       onTap: () {
-        Get.to(quizIntro?[index]);
+        Get.toNamed(Routes.QUIZDETAILS);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

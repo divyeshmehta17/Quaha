@@ -52,11 +52,11 @@ class LoginView extends GetView<LoginController> {
                 Text(
                   'Up Skill in 10 minutes',
                   style: TextStyleUtil.rubik500(fontSize: 24),
-                ).paddingOnly(top: 16.kh),
+                ).paddingOnly(top: 29.kh),
                 Text(
                   'Gain access to the best courses, career and business insights.Do this all while having fun.',
                   style: TextStyleUtil.rubik500(fontSize: 16),
-                ).paddingSymmetric(vertical: 22.kh),
+                ).paddingOnly(top: 6.kh, bottom: 22.kh),
                 QuahaTextField(
                   readonly: false,
                   controller: controller.emailController,
@@ -75,6 +75,34 @@ class LoginView extends GetView<LoginController> {
                       hintText: 'Password',
                       obscureText: true,
                       textStyle: TextStyleUtil.roboto400(fontSize: 14),
+                    ),
+                    24.kheightBox,
+                    Row(
+                      children: [
+                        Obx(
+                          () => Checkbox(
+                              side: BorderSide(color: context.containerBG),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4.kw),
+                              ),
+                              value: controller.isChecked.value,
+                              onChanged: (value) {
+                                controller.isChecked.value = value!;
+                              }),
+                        ),
+                        Expanded(
+                          child: Text.rich(TextSpan(
+                              text: 'Agree to our ',
+                              style: TextStyleUtil.rubik500(fontSize: 14.kh),
+                              children: <InlineSpan>[
+                                TextSpan(
+                                  text: 'terms and condition & privacy policy',
+                                  style:
+                                      TextStyleUtil.rubik700(fontSize: 14.kh),
+                                )
+                              ])),
+                        ),
+                      ],
                     ),
                     24.kheightBox,
                     QuahaButton(
@@ -120,7 +148,7 @@ class LoginView extends GetView<LoginController> {
                   ],
                 ),
               ],
-            ).paddingSymmetric(horizontal: 16.kw, vertical: 18.kh),
+            ).paddingSymmetric(horizontal: 16.kw, vertical: 28.kh),
           ),
         ));
   }

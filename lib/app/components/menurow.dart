@@ -14,27 +14,38 @@ class CustomMenuRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        GestureDetector(
-            onTap: onTap,
-            child: SvgPicture.asset(ImageConstant.svgalign)
-                .paddingOnly(right: 14.kw)),
-        SvgPicture.asset(ImageConstant.svgfire).paddingOnly(right: 204.kw),
-        SvgPicture.asset(ImageConstant.svgNotification)
-            .paddingOnly(right: 14.kw),
-        GestureDetector(
-          onTap: () {
-            Get.to(ProfileView());
-          },
-          child: CircleAvatar(
-            radius: 15,
-            backgroundColor: Colors.white,
-            child: CommonImageView(
-              imagePath: ImageConstant.pngprofile,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            GestureDetector(
+                onTap: onTap,
+                child: SvgPicture.asset(ImageConstant.svgalign)
+                    .paddingOnly(right: 14.kw)),
+            SvgPicture.asset(ImageConstant.svgfire),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SvgPicture.asset(ImageConstant.svgNotification)
+                .paddingOnly(right: 14.kw),
+            GestureDetector(
+              onTap: () {
+                Get.to(ProfileView());
+              },
+              child: CircleAvatar(
+                radius: 15,
+                backgroundColor: Colors.white,
+                child: CommonImageView(
+                  imagePath: ImageConstant.pngprofile,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ],
-    ).paddingOnly(top: 23.kh, bottom: 28.kh);
+    );
   }
 }

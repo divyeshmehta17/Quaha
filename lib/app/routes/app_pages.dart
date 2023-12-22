@@ -54,6 +54,10 @@ import '../modules/quiz/quizintro/bindings/quizintro_binding.dart';
 import '../modules/quiz/quizintro/views/quizintro_view.dart';
 import '../modules/quiz/quizscreen/bindings/quizscreen_binding.dart';
 import '../modules/quiz/quizscreen/views/quizscreen_view.dart';
+import '../modules/quizcompleted/bindings/quizcompleted_binding.dart';
+import '../modules/quizcompleted/views/quizcompleted_view.dart';
+import '../modules/quizreview/bindings/quizreview_binding.dart';
+import '../modules/quizreview/views/quizreview_view.dart';
 import '../modules/rewardsandbadges/bindings/rewardsandbadges_binding.dart';
 import '../modules/rewardsandbadges/views/rewardsandbadges_view.dart';
 import '../modules/searchscreen/bindings/searchscreen_binding.dart';
@@ -226,7 +230,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.QUIZBRANDING,
-      page: () => const QuizbrandingView(),
+      page: () => QuizbrandingView(),
       binding: QuizbrandingBinding(),
     ),
     GetPage(
@@ -283,6 +287,16 @@ class AppPages {
       name: _Paths.INSTRUCTORINFORMATION,
       page: () => const InstructorinformationView(),
       binding: InstructorinformationBinding(),
+    ),
+    GetPage(
+      name: _Paths.QUIZCOMPLETED,
+      page: () => const QuizcompletedView(),
+      binding: QuizcompletedBinding(),
+    ),
+    GetPage(
+      name: _Paths.QUIZREVIEW,
+      page: () => const QuizreviewView(),
+      binding: QuizreviewBinding(),
     ),
   ];
 }

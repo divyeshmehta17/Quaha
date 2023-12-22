@@ -91,6 +91,18 @@ class LessonContents extends StatelessWidget {
                       collapsedIconColor: Colors.white,
                       collapsedShape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.kw)),
+                      trailing: Column(
+                        children: [
+                          Icon(CupertinoIcons.chevron_down)
+                              .paddingOnly(bottom: 8.kh),
+                          GestureDetector(
+                            onTap: () {},
+                            child: CommonImageView(
+                              svgPath: ImageConstant.svgdownload,
+                            ),
+                          )
+                        ],
+                      ),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.kw)),
                       title: Column(
@@ -176,6 +188,7 @@ class LessonContents extends StatelessWidget {
                             ),
                             QuahaButton(
                                     onpressed: () {},
+                                    svgPath: ImageConstant.svgdownload,
                                     label: 'Download All',
                                     labelStyle:
                                         TextStyleUtil.rubik600(fontSize: 14.kh))
@@ -533,7 +546,7 @@ class AboutCourse extends StatelessWidget {
                 width: 19.kw,
               ),
               Text(
-                'Beginner Level',
+                'Level: Beginner',
                 style: TextStyleUtil.rubik500(fontSize: 14.kh),
               ).paddingOnly(left: 8.kw),
             ],
@@ -590,7 +603,7 @@ class AboutCourse extends StatelessWidget {
               onpressed: () {
                 Get.toNamed(Routes.COURSE1);
               },
-              label: 'Start Course',
+              label: 'Start Module',
               svgPath: ImageConstant.svglock,
               labelStyle: TextStyleUtil.roboto600(fontSize: 14.kh)),
         ],

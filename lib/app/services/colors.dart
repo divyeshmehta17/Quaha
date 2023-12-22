@@ -15,4 +15,6 @@ extension ColorUtil on BuildContext {
   Color get purple => HexColor("#DC07FF");
   Color get mustard => HexColor("#FFAA00");
   Color get indigo => HexColor("#373D70");
+  Color get lightblue => HexColor("#5CA3E2");
+  Color get bottomBarColor => HexColor("#373D70");
 }

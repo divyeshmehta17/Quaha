@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:quaha/app/components/common_image_view.dart';
 import 'package:quaha/app/constants/image_constant.dart';
 import 'package:quaha/app/modules/splash1/controllers/splash1_controller.dart';
+import 'package:quaha/app/routes/app_pages.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
 
@@ -18,57 +19,73 @@ class Splash1View extends GetView<Splash1Controller> {
 
     return Scaffold(
       backgroundColor: context.brandColor1,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: PageView(
-              controller: pageController,
-              onPageChanged: (index) {
-                controller.currentPage.value = index / 2;
-              },
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                SplashPage(
-                  imageAsset: ImageConstant.pngBrainstorming,
-                  title: 'Courses',
-                  description: 'Unlock the knowledge to excel.',
-                  additionalText: 'Are you Ready?',
-                ),
-                SplashPage(
-                  imageAsset: ImageConstant.pngPabloBooks,
-                  title: 'COMMUNITY',
-                  description:
-                      'Join the Quaha Community that supports you through your journey',
-                ),
-                SplashPage(
-                  imageAsset: ImageConstant.pngGirlDrinkingCoffee,
-                  title: 'QUIZ',
-                  description:
-                      'Have fun daily, playing and learning. Compete, earn rewards and win.',
-                ),
+                TextButton(
+                    onPressed: () {
+                      Get.toNamed(Routes.BOTTOMNAVBAR);
+                    },
+                    child: Text(
+                      'Skip Now',
+                      style: TextStyleUtil.rubik600(fontSize: 17.kh),
+                    )),
               ],
             ),
-          ),
-          Obx(
-            () => NextButton(
-              onTap: () {
-                print(controller.currentPage.value);
-                if (controller.currentPage.value < 1) {
-                  pageController.nextPage(
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.fastOutSlowIn,
-                  );
-                } else {
-                  Get.to(LoginView(), transition: Transition.fade);
-                }
-              },
-              color: Colors.blue,
-              iconColor: Colors.white,
-              currentPage: controller.currentPage.value,
-            ).paddingOnly(bottom: 48.kh),
-          ),
-        ],
-      ).paddingOnly(left: 18.kw, right: 18.kw),
+            Expanded(
+              child: PageView(
+                controller: pageController,
+                onPageChanged: (index) {
+                  controller.currentPage.value = index / 2;
+                },
+                children: [
+                  SplashPage(
+                    imageAsset: ImageConstant.pngBrainstorming,
+                    title: 'Courses',
+                    description:
+                        'Unlock the knowledge to excel your career and start-up.',
+                    additionalText: 'Are you Ready?',
+                  ),
+                  SplashPage(
+                    imageAsset: ImageConstant.pngPabloBooks,
+                    title: 'COMMUNITY',
+                    description: 'Shape the future of learning together!',
+                    additionalText: 'Are you Ready to commit?',
+                  ),
+                  SplashPage(
+                    imageAsset: ImageConstant.pngGirlDrinkingCoffee,
+                    title: 'QUIZ',
+                    description:
+                        'Have fun daily, playing and learning. Compete, earn rewards and win.',
+                  ),
+                ],
+              ),
+            ),
+            Obx(
+              () => NextButton(
+                onTap: () {
+                  print(controller.currentPage.value);
+                  if (controller.currentPage.value < 1) {
+                    pageController.nextPage(
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.fastOutSlowIn,
+                    );
+                  } else {
+                    Get.to(LoginView(), transition: Transition.fade);
+                  }
+                },
+                color: Colors.blue,
+                iconColor: Colors.white,
+                currentPage: controller.currentPage.value,
+              ).paddingOnly(bottom: 48.kh),
+            ),
+          ],
+        ).paddingOnly(left: 18.kw, right: 18.kw),
+      ),
     );
   }
 }

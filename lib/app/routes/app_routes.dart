@@ -46,6 +46,9 @@ abstract class Routes {
   static const COURSEPAGE2 = _Paths.COURSEPAGE2;
   static const UNLOCKMODULE = _Paths.UNLOCKMODULE;
   static const INSTRUCTORINFORMATION = _Paths.INSTRUCTORINFORMATION;
+  static const QUIZCOMPLETEFD = _Paths.QUIZCOMPLETEFD;
+  static const QUIZCOMPLETED = _Paths.QUIZCOMPLETED;
+  static const QUIZREVIEW = _Paths.QUIZREVIEW;
 }
 
 abstract class _Paths {
@@ -93,4 +96,7 @@ abstract class _Paths {
   static const COURSEPAGE2 = '/coursepage2';
   static const UNLOCKMODULE = '/unlockmodule';
   static const INSTRUCTORINFORMATION = '/instructorinformation';
+  static const QUIZCOMPLETEFD = '/quizcompletefd';
+  static const QUIZCOMPLETED = '/quizcompleted';
+  static const QUIZREVIEW = '/quizreview';
 }

@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quaha/app/components/Quaha_Button.dart';
 import 'package:quaha/app/components/common_image_view.dart';
 import 'package:quaha/app/components/quaha_app_bar.dart';
 import 'package:quaha/app/constants/image_constant.dart';
+import 'package:quaha/app/routes/app_pages.dart';
 import 'package:quaha/app/services/colors.dart';
 import 'package:quaha/app/services/responsive_size.dart';
 import 'package:quaha/app/services/text_style_util.dart';
@@ -18,11 +19,16 @@ class QuizdetailsView extends GetView<QuizdetailsController> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Stack(
                 children: [
-                  CommonImageView(
-                    imagePath: ImageConstant.pngreadyforquiz,
+                  Center(
+                    child: CommonImageView(
+                      imagePath: ImageConstant.pngreadyforquiz,
+                      fit: BoxFit.fill,
+                      width: 375.kw,
+                    ),
                   ),
                   QuahaAppBar(
                     color: Colors.transparent,
@@ -67,9 +73,10 @@ class QuizdetailsView extends GetView<QuizdetailsController> {
                         CommonImageView(
                           imagePath: ImageConstant.pngquoins,
                           height: 24.kh,
+                          width: 24.kw,
                         ),
                         Text(
-                          '10 Questions',
+                          '10 Quoins',
                           style: TextStyleUtil.rubik500(fontSize: 14.kh),
                         ),
                       ],
@@ -109,73 +116,19 @@ class QuizdetailsView extends GetView<QuizdetailsController> {
                     ],
                   )
                 ],
-              ).paddingOnly(left: 16.kw, right: 16.kw, top: 23.kh),
-              Container(
-                decoration: BoxDecoration(
-                  color: context.containerBG,
-                ),
-                child: Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'INSTRUCTORS',
-                          style: TextStyleUtil.rubik500(
-                              fontSize: 14.kh, letterSpacing: 1),
-                        ).paddingOnly(top: 16.kh, bottom: 10.kh),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(8.kw),
-                                ),
-                                child: CommonImageView(
-                                  imagePath: ImageConstant.pngQuahaLogo,
-                                  height: 40.kh,
-                                )),
-                            Text(
-                              'Quaha Future\nGames',
-                              style: TextStyleUtil.rubik500(
-                                fontSize: 13.kh,
-                              ),
-                            ).paddingOnly(left: 14.kw, right: 160.kw),
-                            Icon(
-                              color: Colors.white,
-                              CupertinoIcons.forward,
-                              size: 24.kw,
-                            )
-                          ],
-                        ).paddingOnly(bottom: 18.kh),
-                      ],
-                    )
-                  ],
-                ).paddingOnly(left: 24.kw, right: 20.kw),
-              ).paddingOnly(top: 24.kw, bottom: 90.kw),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 12.kw, vertical: 16.kh)),
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Join With',
-                        style: TextStyleUtil.rubik500(fontSize: 16.kh),
-                      ),
-                      CommonImageView(
-                        imagePath: ImageConstant.pngquoins,
-                        height: 20.kh,
-                      ).paddingOnly(left: 5.kw, right: 5.kw),
-                      Text(
-                        '10 Quoins',
-                        style: TextStyleUtil.rubik500(fontSize: 16.kh),
-                      ),
-                    ],
-                  )).paddingOnly(left: 16.kw, right: 16.kw, bottom: 43.kh),
+              ).paddingOnly(
+                  left: 16.kw, right: 16.kw, top: 23.kh, bottom: 65.kh),
+              QuahaButton(
+                      onpressed: () {
+                        Get.toNamed(Routes.QUIZBRANDING);
+                      },
+                      isCost: true,
+                      label: 'Join With',
+                      labelStyle: TextStyleUtil.rubik500(fontSize: 16.kh))
+                  .paddingOnly(
+                left: 16.kw,
+                right: 16.kw,
+              )
             ],
           ),
         ),
